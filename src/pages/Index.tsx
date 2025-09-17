@@ -7,13 +7,13 @@ import ImageModal from '@/components/ImageModal';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
 // Import hero and hiking images
-import heroPlaceholder from '@/assets/hero-video-placeholder.jpg';
+import heroPlaceholder from '@/assets/HeroSection1.jpg';
 import hikingTrail from '@/assets/hiking-trail.jpg';
-import boatTravel from '@/assets/hiking-boat-travel.jpg';
-import hikingMap from '@/assets/hiking-map.jpg';
-import hikingStart from '@/assets/hiking-start-new.jpg';
-import hikingStairs from '@/assets/hiking-trail-new.jpg';
-import mountainTopView from '@/assets/mountain-top-view.jpg';
+import boatTravel from '@/assets/hiking/hiking1.jpg';
+import hikingMap from '@/assets/hiking/hiking2.jpg';
+import hikingStart from '@/assets/hiking/hiking3.png';
+import hikingStairs from '@/assets/hiking/hiking4.jpg';
+import mountainTopView from '@/assets/hiking/hiking5.png';
 
 // Import food images
 import foodSeafoodPlatter from '@/assets/food-seafood-platter.jpg';
@@ -38,32 +38,32 @@ import sunsetActivity from '@/assets/sunset-activity.jpg';
 import conversationActivity from '@/assets/conversation-activity.jpg';
 
 // Import room images
-import roomOceanView from '@/assets/room-ocean-view.jpg';
-import roomFamilySuite from '@/assets/room-family-suite.jpg';
-import roomBeachfrontVilla from '@/assets/room-beachfront-villa.jpg';
-import roomMountainView from '@/assets/room-mountain-view.jpg';
-import roomPresidentialSuite from '@/assets/room-presidential-suite.jpg';
-import roomGardenView from '@/assets/room-garden-view.jpg';
-import roomHoneymoonBungalow from '@/assets/room-honeymoon-bungalow.jpg';
-import roomStandard from '@/assets/room-standard.jpg';
-import roomExecutiveSuite from '@/assets/room-executive-suite.jpg';
-import roomPenthouseTerrace from '@/assets/room-penthouse-terrace.jpg';
-import roomDeluxeOcean from '@/assets/room-deluxe-ocean.jpg';
-import roomSpaSuite from '@/assets/room-spa-suite.jpg';
+import roomOceanView from '@/assets/rooms/room1.jpg';
+import roomFamilySuite from '@/assets/rooms/room2.jpg';
+import roomBeachfrontVilla from '@/assets/rooms/room3.jpg';
+import roomMountainView from '@/assets/rooms/room4.jpg';
+import roomPresidentialSuite from '@/assets/rooms/room5.jpg';
+import roomGardenView from '@/assets/rooms/room6.jpg';
+import roomHoneymoonBungalow from '@/assets/rooms/room7.jpg';
+import roomStandard from '@/assets/rooms/room8.jpg';
+import roomExecutiveSuite from '@/assets/rooms/room9.jpg';
+import roomPenthouseTerrace from '@/assets/rooms/room10.jpg';
+import roomDeluxeOcean from '@/assets/rooms/room11.jpg';
+import roomSpaSuite from '@/assets/rooms/room12.jpg';
 
 // Import scenery images
-import sceneryResortExterior from '@/assets/scenery-resort-exterior.jpg';
-import sceneryDiningHall from '@/assets/scenery-dining-hall.jpg';
-import sceneryPoolInfinity from '@/assets/scenery-pool-infinity.jpg';
-import sceneryBeachWhiteSand from '@/assets/scenery-beach-white-sand.jpg';
-import scenerySpaPavilion from '@/assets/scenery-spa-pavilion.jpg';
-import sceneryLobby from '@/assets/scenery-lobby.jpg';
-import sceneryWoodenPier from '@/assets/scenery-wooden-pier.jpg';
-import sceneryOutdoorBar from '@/assets/scenery-outdoor-bar.jpg';
-import sceneryGardenWalkway from '@/assets/scenery-garden-walkway.jpg';
-import sceneryWellnessCenter from '@/assets/scenery-wellness-center.jpg';
-import sceneryTennisCourt from '@/assets/scenery-tennis-court.jpg';
-import scenerySunsetTerrace from '@/assets/scenery-sunset-terrace.jpg';
+import sceneryResortExterior from '@/assets/scenery/PIScene1.jpeg';
+import sceneryDiningHall from '@/assets/scenery/PIScene2.jpg';
+import sceneryPoolInfinity from '@/assets/scenery/PIScene3.jpg';
+import sceneryBeachWhiteSand from '@/assets/scenery/PIScene4.jpg';
+import scenerySpaPavilion from '@/assets/scenery/PIScene5.jpg';
+import sceneryLobby from '@/assets/scenery/PIScene6.jpg';
+import sceneryWoodenPier from '@/assets/scenery/PIScene7.jpg';
+import sceneryOutdoorBar from '@/assets/scenery/PIScene8.jpg';
+import sceneryGardenWalkway from '@/assets/scenery/PIScene9.jpg';
+import sceneryWellnessCenter from '@/assets/scenery/PIScene10.jpg';
+import sceneryTennisCourt from '@/assets/scenery/PIScene11.jpg';
+import scenerySunsetTerrace from '@/assets/scenery/PIScene12.jpg';
 
 const hikingImages = [
   { 
@@ -75,7 +75,7 @@ const hikingImages = [
   { 
     src: boatTravel, 
     alt: "Cabin Cruiser Journey",
-    title: "Luxury Boat Transfer",
+    title: "Boat Transfer",
     description: "Scenic cabin cruiser ride to the island" 
   },
   { 
@@ -174,17 +174,17 @@ const testimonials = [
 ];
 
 const sceneryGallery = [
-  { src: sceneryResortExterior, alt: "Resort Exterior", title: "Tropical Paradise", description: "Luxurious resort surrounded by pristine tropical gardens and swaying palm trees" },
-  { src: sceneryDiningHall, alt: "Main Dining Hall", title: "Elegant Dining", description: "Sophisticated dining hall with panoramic ocean views and crystal chandeliers" },
-  { src: sceneryPoolInfinity, alt: "Infinity Pool", title: "Infinity Edge Pool", description: "Stunning infinity pool offering breathtaking views of the endless ocean horizon" },
-  { src: sceneryBeachWhiteSand, alt: "White Sand Beach", title: "Pristine Beach", description: "Powder-white sand beach with crystal clear turquoise waters" },
-  { src: scenerySpaPavilion, alt: "Spa Pavilion", title: "Wellness Sanctuary", description: "Tranquil spa pavilion nestled in lush tropical gardens for ultimate relaxation" },
-  { src: sceneryLobby, alt: "Resort Lobby", title: "Grand Lobby", description: "Impressive lobby featuring high ceilings and natural tropical elements" },
-  { src: sceneryWoodenPier, alt: "Wooden Pier", title: "Ocean Pier", description: "Beautiful wooden pier extending into the crystal clear ocean waters" },
-  { src: sceneryOutdoorBar, alt: "Tiki Bar", title: "Tropical Bar", description: "Authentic tiki bar with thatched roof overlooking the stunning ocean views" },
-  { src: sceneryGardenWalkway, alt: "Garden Path", title: "Tropical Gardens", description: "Meandering stone pathways through vibrant tropical flowers and greenery" },
-  { src: sceneryWellnessCenter, alt: "Wellness Center", title: "Meditation Space", description: "Peaceful wellness center with yoga pavilions and meditation areas" },
-  { src: sceneryTennisCourt, alt: "Tennis Court", title: "Sports Facilities", description: "Professional tennis court surrounded by tropical landscaping" },
+  { src: sceneryResortExterior, alt: "Resort Exterior", title: "Pearl Island", description: "The natural resort surrounded by pristine nature of ocean and island" },
+  { src: sceneryDiningHall, alt: "Dining Hall", title: "Elegant Dining", description: "Sophisticated dining hall with panoramic ocean views and mountains" },
+  { src: sceneryPoolInfinity, alt: "Infinity Pool", title: "Relaxing Area", description: "Relax area offering breathtaking views of the endless ocean horizon" },
+  { src: sceneryBeachWhiteSand, alt: "White Sand Beach", title: "Dining Hall Center", description: "Enjoy watching sea turtles while dining" },
+  { src: scenerySpaPavilion, alt: "Spa Pavilion", title: "Walkway Path", description: "Enjoying the sky and sea view while walking" },
+  { src: sceneryLobby, alt: "Resort Lobby", title: "Towards Diving Center", description: "A short walk before going for divng center" },
+  { src: sceneryWoodenPier, alt: "Wooden Pier", title: "Water Chalets", description: "Our spacious and comfortable water chalets" },
+  { src: sceneryOutdoorBar, alt: "Tiki Bar", title: "Horizontal View", description: "Endless joy while going for adventures" },
+  { src: sceneryGardenWalkway, alt: "Garden Path", title: "Sunset View", description: "Time pass while enjoying the sunset" },
+  { src: sceneryWellnessCenter, alt: "Wellness Center", title: "Meditation Space", description: "Peaceful environment to comfort and regenerate your soul" },
+  { src: sceneryTennisCourt, alt: "Tennis Court", title: "Beautiful Sky", description: "Surrounded nature that helps you relax" },
   { src: scenerySunsetTerrace, alt: "Sunset Terrace", title: "Golden Hour Views", description: "Spectacular sunset viewing terrace with panoramic ocean vistas" }
 ];
 
@@ -830,18 +830,18 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Information */}
             <div>
-              <h3 className="text-2xl font-bold mb-6 text-primary">Pearl Island Resort</h3>
+              <h3 className="text-2xl font-bold mb-6 text-white">Pearl Island Resort</h3>
               <div className="space-y-3 text-slate-300">
                 <div className="flex items-center gap-2">
-                  <MapPin size={18} className="text-primary" />
+                  <MapPin size={18} className="text-white" />
                   <span>123 Mountain View Drive, Pearl Island Resort, National Park Zone</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone size={18} className="text-primary" />
+                  <Phone size={18} className="text-white" />
                   <span>+1 (555) 123-4567</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail size={18} className="text-primary" />
+                  <Mail size={18} className="text-white" />
                   <span>info@pearlisland.com</span>
                 </div>
               </div>
@@ -851,21 +851,21 @@ const Index = () => {
             <div>
               <h4 className="text-xl font-semibold mb-6 text-white">Follow Us</h4>
               <div className="flex flex-wrap gap-4 mb-6">
-                <a href="#" className="text-slate-300 hover:text-primary transition-colors">
+                <a href="#" className="text-slate-300">
                   Facebook
                 </a>
-                <a href="#" className="text-slate-300 hover:text-primary transition-colors">
+                <a href="#" className="text-slate-300">
                   Instagram
                 </a>
-                <a href="#" className="text-slate-300 hover:text-primary transition-colors">
+                <a href="#" className="text-slate-300">
                   TikTok
                 </a>
-                <a href="#" className="text-slate-300 hover:text-primary transition-colors">
+                <a href="#" className="text-slate-300">
                   RedNotes
                 </a>
                 <ContactDialog
                   trigger={
-                    <button className="text-slate-300 hover:text-primary transition-colors">
+                    <button className="text-slate-300">
                       Enquiry
                     </button>
                   }
@@ -876,7 +876,7 @@ const Index = () => {
           
           <div className="border-t border-slate-700 mt-12 pt-8 text-center">
             <p className="text-slate-400">
-              © 2024 Pearl Island Resort. All rights reserved.
+              © 2025 Pearl Island Resort. All rights reserved.
             </p>
           </div>
         </div>
