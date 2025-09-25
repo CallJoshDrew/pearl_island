@@ -67,13 +67,19 @@ const Navigation = () => {
             >
               Rooms
             </button>
-            <ContactDialog
+            <button
+              onClick={() => scrollToSection('contacts')}
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              Contact
+            </button>
+            {/* <ContactDialog
               trigger={
                 <button className="text-foreground hover:text-primary transition-colors">
                   Enquiry
                 </button>
               }
-            />
+            /> */}
             <ContactDialog
               trigger={
                 <Button className="bg-primary hover:bg-primary/90 text-white px-6">
