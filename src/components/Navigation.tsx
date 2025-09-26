@@ -71,7 +71,7 @@ const Navigation = () => {
               onClick={() => scrollToSection('contacts')}
               className="text-foreground hover:text-primary transition-colors"
             >
-              Contact
+              Contact Us
             </button>
             {/* <ContactDialog
               trigger={

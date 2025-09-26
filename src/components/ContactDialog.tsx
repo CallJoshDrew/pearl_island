@@ -30,12 +30,12 @@ const ContactDialog = ({ trigger }: ContactDialogProps) => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-primary">Enquiry</DialogTitle>
+          <DialogTitle className="text-2xl font-bold text-primary">Booking</DialogTitle>
         </DialogHeader>
         <p className="mt-2 text-sm text-muted-foreground">
-          Get in touch with us for reservations or inquiries about your dream vacation.
+          Get in touch with us for reservations about your dream vacation.
         </p>
-        <div className="mt-3 grid grid-cols-1 gap-3">
+        {/* <div className="mt-3 grid grid-cols-1 gap-3">
           <div className="flex items-center gap-2 text-foreground">
             <Phone size={18} className="text-primary" />
             <span>+60 12-345 6789</span>
@@ -48,7 +48,7 @@ const ContactDialog = ({ trigger }: ContactDialogProps) => {
             <MapPin size={18} className="text-primary" />
             <span>Semporna, Sabah, Malaysia</span>
           </div>
-        </div>
+        </div> */}
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           <div className="grid md:grid-cols-2 gap-4">
             <Input
