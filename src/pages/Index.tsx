@@ -8,12 +8,13 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 // Import hero and hiking images
 import heroPlaceholder from "@/assets/scenery/PIScene3.jpg";
-import hikingTrail from "@/assets/hiking-trail.jpg";
-import boatTravel from "@/assets/hiking/hiking1.jpg";
-import hikingMap from "@/assets/hiking/hiking2.jpg";
-import hikingStart from "@/assets/hiking/hiking3.png";
-import hikingStairs from "@/assets/hiking/hiking4.jpg";
-import mountainTopView from "@/assets/hiking/hiking5.png";
+// import hikingTrail from "@/assets/hiking-trail.jpg";
+import bdHiking from "@/assets/hiking/hiking1a.png";
+// import boatTravel from "@/assets/hiking/hiking1.jpg";
+import hikingStart from "@/assets/hiking/hiking2a.png";
+import hikingStairs from "@/assets/hiking/hiking3a.png";
+import mountainTopView1 from "@/assets/hiking/hiking4a.png";
+import mountainTopView2 from "@/assets/hiking/hiking5a.png";
 
 // Import food images
 import foodSeafoodPlatter from "@/assets/food/food1.jpg";
@@ -28,14 +29,14 @@ import foodFreshOysters from "@/assets/food/food9.jpg";
 import foodMushroomRisotto from "@/assets/food/food10.jpg";
 
 // Import activity images
-import divingActivity from "@/assets/diving-activity.jpg";
-import snorkelingActivity from "@/assets/snorkeling-activity.jpg";
-import kayakingActivity from "@/assets/kayaking-activity.jpg";
-import cyclingActivity from "@/assets/cycling-activity.jpg";
-import relaxingActivity from "@/assets/relaxing-activity.jpg";
-import diningActivity from "@/assets/dining-activity.jpg";
-import sunsetActivity from "@/assets/sunset-activity.jpg";
-import conversationActivity from "@/assets/conversation-activity.jpg";
+import divingActivity from "@/assets/activities/diving.png";
+import snorkelingActivity from "@/assets/activities/snorkeling.png";
+import kayakingActivity from "@/assets/activities/kayaking.png";
+import cyclingActivity from "@/assets/activities/cycling.png";
+import relaxingActivity from "@/assets/activities/relaxation.png";
+import diningActivity from "@/assets/activities/dining.png";
+import sunsetActivity from "@/assets/activities/sunset2.png";
+import conversationActivity from "@/assets/activities/social.png";
 
 // Import room images
 import roomOceanView from "@/assets/rooms/room1.jpg";
@@ -67,31 +68,31 @@ import scenerySunsetTerrace from "@/assets/scenery/PIScene12.jpg";
 
 const hikingImages = [
   {
-    src: hikingMap,
-    alt: "Hiking trail map from resort to mountain top",
-    title: "Complete Trail Map",
-    description: "30-40 minute journey from resort to summit",
-  },
-  {
-    src: boatTravel,
-    alt: "Cabin Cruiser Journey",
-    title: "Boat Transfer",
-    description: "Scenic cabin cruiser ride to the island",
+    src: bdHiking,
+    alt: "2 minutes journey from Pearl Island Resort to Bohey Dulang Island",
+    title: "Arrival at Bohey Dulang ",
+    description: "2 minutes journey from Pearl Island Resort",
   },
   {
     src: hikingStart,
-    alt: "Hiking Trail Entrance",
+    alt: "Hiking Trail Information",
     title: "Welcome to the Trail",
     description: "Guided start point with trail information",
   },
   {
     src: hikingStairs,
-    alt: "Natural Mountain Trail",
-    title: "Natural Walking Path",
-    description: "Rocky trail through tropical terrain",
+    alt: "Natural Mountain Trail with Staircase",
+    title: "The Staircase Path",
+    description: "Rocky trail through staircase",
   },
   {
-    src: mountainTopView,
+    src: mountainTopView1,
+    alt: "Mountain Top View",
+    title: "Panoramic Summit View",
+    description: "Stunning ocean and island vistas",
+  },
+  {
+    src: mountainTopView2,
     alt: "Mountain Top View",
     title: "Panoramic Summit View",
     description: "Stunning ocean and island vistas",
@@ -104,9 +105,9 @@ const activities = [
   { src: kayakingActivity, alt: "Kayaking", title: "Kayaking" },
   { src: cyclingActivity, alt: "Cycling", title: "Cycling" },
   { src: relaxingActivity, alt: "Relaxing", title: "Relaxation" },
-  { src: diningActivity, alt: "Fine Dining", title: "Fine Dining" },
+  { src: diningActivity, alt: "Fine Dining", title: "Dining" },
   { src: sunsetActivity, alt: "Sunset Viewing", title: "Sunset Views" },
-  { src: conversationActivity, alt: "Social Time", title: "Social Activities" },
+  { src: conversationActivity, alt: "Social Time", title: "Social" },
 ];
 
 const foodGallery = [
@@ -630,13 +631,15 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-            <ContactDialog
-              trigger={
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-12 py-6 text-xl font-semibold rounded-full transition-all duration-300 hover:scale-105">
-                  Book Now
-                </Button>
-              }
-            />
+            {/* <ContactDialog
+              trigger={ */}
+            <a href="https://dive-malaysia.com/enquiries/" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-12 py-6 text-xl font-semibold rounded-full transition-all duration-300 hover:scale-105">
+                Book Now
+              </Button>
+            </a>
+            {/* } */}
+            {/* /> */}
           </div>
         </div>
       </section>
@@ -649,7 +652,6 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
             {/* Sandakan Office */}
             <div>
-              
               <div className="space-y-3 text-white">
                 <p>Sandakan Office</p>
                 <a href="https://maps.app.goo.gl/pkaqfYKCzzatt6kC9" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
