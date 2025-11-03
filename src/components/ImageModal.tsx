@@ -37,7 +37,7 @@ const ImageModal = ({ isOpen, onClose, image, images, currentIndex, onNavigate }
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl w-full p-0 bg-background border-0">
+      <DialogContent className="max-w-4xl w-full p-0 bg-background border-0 rounded-full">
         <div className="relative">
           <button
             onClick={onClose}

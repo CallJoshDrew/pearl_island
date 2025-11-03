@@ -478,8 +478,9 @@ const Index = () => {
 
           {/* Mobile: Tinder-style testimonial carousel */}
           <div className="md:hidden max-w-md mx-auto">
-            <Card className="border-2 border-border hover:border-primary/50 transition-colors duration-300 shadow-lg hover:shadow-xl min-h-[300px]">
-              <CardContent className="p-8">
+            <Card className="border-2 border-border hover:border-primary/50 transition-colors duration-300 shadow-lg hover:shadow-xl min-h-[400px] flex flex-col">
+              <CardContent className="p-8 flex-1 flex flex-col">
+                {/* Rating and platform */}
                 <div className="flex items-center mb-6 justify-center">
                   <div className="flex text-yellow-400">
                     {[...Array(testimonials[currentTestimonialIndex].rating)].map((_, i) => (
@@ -490,12 +491,18 @@ const Index = () => {
                   </div>
                   <span className="ml-3 text-sm text-muted-foreground font-medium">{testimonials[currentTestimonialIndex].platform}</span>
                 </div>
-                <p className="text-muted-foreground mb-6 italic leading-relaxed text-center text-lg">"{testimonials[currentTestimonialIndex].text}"</p>
-                <p className="font-semibold text-foreground text-center text-xl">- {testimonials[currentTestimonialIndex].name}</p>
+
+                {/* Testimonial text - this section will grow to fill available space */}
+                <div className="flex-1 flex items-center justify-center min-h-0">
+                  <p className="text-muted-foreground mb-6 italic leading-relaxed text-center text-lg flex-1">"{testimonials[currentTestimonialIndex].text}"</p>
+                </div>
+
+                {/* Author name - fixed at bottom */}
+                <p className="font-semibold text-foreground text-center text-xl mt-auto pt-4">- {testimonials[currentTestimonialIndex].name}</p>
               </CardContent>
             </Card>
 
-            {/* Navigation buttons */}
+            {/* Navigation buttons - these will now stay in fixed position */}
             <div className="flex justify-center gap-4 mt-8">
               <Button variant="outline" size="lg" onClick={prevTestimonial} className="rounded-full px-8 bg-primary hover:bg-primary/90 text-white border-primary">
                 Previous
