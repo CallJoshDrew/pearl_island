@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
@@ -29,10 +29,10 @@ import foodFreshOysters from "@/assets/food/food9.jpg";
 import foodMushroomRisotto from "@/assets/food/food10.jpg";
 
 // Import activity images
-import divingActivity from "@/assets/activities/diving.png";
+import divingActivity from "@/assets/activities/diving2.png";
 import snorkelingActivity from "@/assets/activities/snorkeling.png";
 import kayakingActivity from "@/assets/activities/kayaking.png";
-import cyclingActivity from "@/assets/activities/cycling.png";
+import cyclingActivity from "@/assets/activities/cycling2.png";
 import relaxingActivity from "@/assets/activities/relaxation.png";
 import diningActivity from "@/assets/activities/dining.png";
 import sunsetActivity from "@/assets/activities/sunset2.png";
@@ -231,37 +231,67 @@ const Index = () => {
     setSelectedRoomImage(rooms[index]);
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  // const scrollToSection = (sectionId: string) => {
+  //   const element = document.getElementById(sectionId);
+  //   if (element) {
+  //     element.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
+
+  const [isMuted, setIsMuted] = useState(true);
+  const iframeRef = useRef(null);
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
   };
+
+  // Generate YouTube URL based on mute state
+  const youtubeUrl = `https://www.youtube.com/embed/MSuWgKDOohw?autoplay=1&mute=${isMuted ? 0 : 1}&loop=1&playlist=MSuWgKDOohw&controls=0&showinfo=0&rel=0&modestbranding=1&background=1&vq=hd1440`;
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
 
       {/* Hero Section */}
-      <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroPlaceholder})` }}>
+      <section id="hero" className="relative h-screen flex flex-col md:block overflow-hidden">
+        {/* Music Toggle Button */}
+        <button onClick={toggleMute} className="absolute top-56 md:top-auto md:bottom-4 right-4 z-20 bg-primary/75 md:hover:bg-primary/90 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-105" aria-label={isMuted ? "Unmute background music" : "Mute background music"}>
+          {isMuted ? (
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072M12 6a9 9 0 010 12m-4.5-9.5L12 3v18l-4.5-4.5H4a1 1 0 01-1-1v-7a1 1 0 011-1h3.5z" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+            </svg>
+          )}
+        </button>
+        {/* YouTube Video Background */}
+        <div className="relative z-10 w-full mt-16" style={{ aspectRatio: "16/9" }}>
+          <iframe ref={iframeRef} src={youtubeUrl} className="w-full h-full object-cover" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen title="Background Video" />
           <div className="absolute inset-0 bg-black/40" />
         </div>
-        <div className="relative z-10 text-center text-white max-w-4xl px-6">
-          <h1 className="text-6xl md:text-7xl font-bold mb-6 animate-fade-in">Specially Crafted for Your Holiday</h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">Escape into nature’s sanctuary with refined comfort and warm, attentive service—memories to last a lifetime.</p>
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-white px-12 py-6 text-xl font-semibold rounded-full transition-all duration-300 hover:scale-105 border border-white"
-            onClick={() => {
-              const element = document.getElementById("scenery");
-              // const element = document.getElementById('hiking');
-              if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
-              }
-            }}>
-            Explore Now
-          </Button>
+
+        {/* Content Section */}
+        <div className="flex-1 flex items-center md:flex-col md:items-end justify-center md:justify-start md:mt-24 w-full md:absolute md:inset-0">
+          <div className="absolute inset-0 bg-black/40 hidden md:block"></div>
+
+          <div className="text-center md:text-right text-white max-w-4xl px-6 w-full md:mb-14 md:w-1/3 py-8 md:py-0 relative z-10">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent md:text-white">Specially Crafted for Your Holiday</h1>
+            <p className="text-lg text-center md:text-right md:m-0 md:text-xl lg:text-2xl md:text-white mb-6 md:mb-8 max-w-3xl mx-auto text-muted-foreground leading-relaxed">Escape into nature's sanctuary with refined comfort and warm, attentive service—memories to last a lifetime.</p>
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl font-semibold rounded-full transition-all duration-300 hover:scale-105 border border-white"
+              onClick={() => {
+                const element = document.getElementById("scenery");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}>
+              Explore Now
+            </Button>
+          </div>
         </div>
       </section>
 
