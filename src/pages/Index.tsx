@@ -253,7 +253,7 @@ const Index = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section id="hero" className="relative h-screen flex flex-col md:block overflow-hidden">
+      <section id="hero" className="relative h-screen flex flex-col md:block overflow-hidden bg-gradient-to-b from-background to-secondary/20">
         {/* Music Toggle Button */}
         <button onClick={toggleMute} className="absolute top-72 md:top-auto md:bottom-4 right-4 z-20 bg-primary/75 md:hover:bg-primary/90 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-105" aria-label={isMuted ? "Unmute background music" : "Mute background music"}>
           {isMuted ? (
