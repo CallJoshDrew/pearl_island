@@ -125,53 +125,53 @@ const foodGallery = [
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    platform: "TripAdvisor",
-    rating: 5,
-    text: "Absolutely magical experience! The hiking trail to the mountain top was breathtaking, and the marine life while snorkeling was incredible. This resort truly delivers on creating unforgettable memories.",
-  },
-  {
-    name: "Mike Chen",
+    name: "Ocean Prince",
     platform: "Trip.com",
     rating: 5,
-    text: "Perfect family vacation spot! Kids loved the boat ride to hiking trail, and adults appreciated the luxury amenities. The conservation efforts make you feel good about visiting this pristine location.",
+    text: "Such a great place to be away from city busy life. I like how the resort is in between mountain and sea. The view is stunning especially during sunset.",
   },
   {
-    name: "Emma Williams",
-    platform: "Google Reviews",
-    rating: 5,
-    text: "The most beautiful resort I've ever stayed at. The mountain views from our room were stunning, and the diving experience showed us marine life we'd never seen before. Highly recommended!",
-  },
-  {
-    name: "David Rodriguez",
-    platform: "TripAdvisor",
-    rating: 5,
-    text: "Every detail was perfect - from the comfortable hiking facilities to the delicious local cuisine. The staff went above and beyond to make our anniversary trip special.",
-  },
-  {
-    name: "Lisa Park",
+    name: "Zhunemiguiyi",
     platform: "Trip.com",
     rating: 5,
-    text: "Unparalleled natural beauty combined with luxury accommodations. The protected marine area is a diver's paradise, and the hiking trails offer spectacular island views.",
+    text: "The natural environment is stunning, with countless schools of fish and turtles lurking in the water. Snorkeling at the pier is also excellent, with abundant coral and fish.",
   },
   {
-    name: "James Thompson",
-    platform: "Booking.com",
-    rating: 5,
-    text: "This resort exceeded all expectations. The conservation focus is admirable, and the activities are perfectly organized. The sunset views from the mountain are unforgettable!",
-  },
-  {
-    name: "Anna Martinez",
-    platform: "TripAdvisor",
-    rating: 5,
-    text: "A true gem in paradise! The combination of adventure activities and relaxation options makes this perfect for couples and families. We're already planning our return visit.",
-  },
-  {
-    name: "Tom Wilson",
+    name: "_WeChat32029****",
     platform: "Trip.com",
     rating: 5,
-    text: "Outstanding service and incredible location. The protected waters offer amazing snorkeling, and the mountain hiking trail is well-maintained with stunning payoffs at the top.",
+    text: "The scenery is very beautiful. There are many fish, coral reefs and turtles for snorkeling.",
   },
+  {
+    name: "Yilushunfeng",
+    platform: "Trip.com",
+    rating: 5,
+    text: "Hygiene: Clean and hygienic.",
+  },
+  {
+    name: "tk650156",
+    platform: "Trip.com",
+    rating: 5,
+    text: "The rooms are all the same type, with the same view and environment. The rooms are large and fully equipped.",
+  },
+  // {
+  //   name: "James Thompson",
+  //   platform: "Trip.com",
+  //   rating: 5,
+  //   text: "This resort exceeded all expectations. The conservation focus is admirable, and the activities are perfectly organized. The sunset views from the mountain are unforgettable!",
+  // },
+  // {
+  //   name: "Anna Martinez",
+  //   platform: "Trip.com",
+  //   rating: 5,
+  //   text: "A true gem in paradise! The combination of adventure activities and relaxation options makes this perfect for couples and families. We're already planning our return visit.",
+  // },
+  // {
+  //   name: "Tom Wilson",
+  //   platform: "Trip.com",
+  //   rating: 5,
+  //   text: "Outstanding service and incredible location. The protected waters offer amazing snorkeling, and the mountain hiking trail is well-maintained with stunning payoffs at the top.",
+  // },
 ];
 
 const sceneryGallery = [
@@ -255,7 +255,7 @@ const Index = () => {
       {/* Hero Section */}
       <section id="hero" className="relative h-screen flex flex-col md:block overflow-hidden">
         {/* Music Toggle Button */}
-        <button onClick={toggleMute} className="absolute top-56 md:top-auto md:bottom-4 right-4 z-20 bg-primary/75 md:hover:bg-primary/90 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-105" aria-label={isMuted ? "Unmute background music" : "Mute background music"}>
+        <button onClick={toggleMute} className="absolute top-72 md:top-auto md:bottom-4 right-4 z-20 bg-primary/75 md:hover:bg-primary/90 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-105" aria-label={isMuted ? "Unmute background music" : "Mute background music"}>
           {isMuted ? (
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072M12 6a9 9 0 010 12m-4.5-9.5L12 3v18l-4.5-4.5H4a1 1 0 01-1-1v-7a1 1 0 011-1h3.5z" />
@@ -741,8 +741,8 @@ const Index = () => {
               <a href="https://www.instagram.com/boheydulangresort/" target="_blank" className="text-white transition-all duration-300 hover:scale-110">
                 Instagram
               </a>
-              <span className="text-white">TikTok</span>
-              <span className="text-white">Rednotes</span>
+              {/* <span className="text-white">TikTok</span>
+              <span className="text-white">Rednotes</span> */}
             </div>
           </div>
           <div className="border-t border-white mt-12 pt-8 text-center">
