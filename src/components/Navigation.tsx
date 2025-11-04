@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import ContactDialog from "@/components/ContactDialog";
+import pearlIslandLogo from "@/assets/logo/PIR_TB_WF.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,15 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="font-bold text-xl text-primary">Pearl Island Resort</div>
+          {/* <div className="font-bold text-xl text-primary">Pearl Island Resort</div> */}
+          {/* Logo */}
+          <div className="flex items-center">
+            <img
+              src={pearlIslandLogo} 
+              alt="Pearl Island Resort"
+              className="h-8 w-auto" // adjust size as needed
+            />
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">

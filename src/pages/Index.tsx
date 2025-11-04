@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import ContactDialog from "@/components/ContactDialog";
 import ImageModal from "@/components/ImageModal";
 import { Phone, Mail, MapPin } from "lucide-react";
+import pearlIslandLogo from "@/assets/logo/PIR_TB_WF.png";
 
 // Import hero and hiking images
 import heroPlaceholder from "@/assets/scenery/PIScene3.jpg";
@@ -111,16 +112,16 @@ const activities = [
 ];
 
 const foodGallery = [
-  { src: foodSeafoodPlatter, name: "Seafood Platter", description: "Fresh grilled fish, prawns & seasonal vegetables" },
-  { src: foodBeefSteak, name: "Premium Beef Steak", description: "Tender beef with truffle sauce & roasted vegetables" },
-  { src: foodLobsterThermidor, name: "Lobster Thermidor", description: "Fresh lobster with herbs & butter sauce" },
-  { src: foodTrufflePasta, name: "Truffle Pasta", description: "Handmade pasta with truffle cream & parmesan" },
-  { src: foodSushiPlatter, name: "Artisan Sushi", description: "Fresh sashimi & specialty rolls" },
-  { src: foodChocolateDessert, name: "Chocolate Dessert", description: "Decadent chocolate with berry compote" },
-  { src: foodMediterraneanVegetables, name: "Mediterranean Vegetables", description: "Grilled vegetables with herbs & olive oil" },
-  { src: foodDuckBreast, name: "Pan-Seared Duck", description: "Duck breast with orange glaze & root vegetables" },
-  { src: foodFreshOysters, name: "Fresh Oysters", description: "Local oysters on ice with lemon & mignonette" },
-  { src: foodMushroomRisotto, name: "Mushroom Risotto", description: "Creamy risotto with wild mushrooms" },
+  { src: foodSeafoodPlatter, name: "Aglio Olio Seafood Spaghetti", description: "Zesty spaghetti, tossed with mixed seafood" },
+  { src: foodBeefSteak, name: "Korean Chicken Wings", description: "Crispy, sweet, and spicy Korean favorite" },
+  { src: foodLobsterThermidor, name: "Roasted Duck", description: "Tender, succulent duck with perfectly crisp skin" },
+  { src: foodTrufflePasta, name: "Salt & Pepper Crab", description: "Wok-tossed, savory, and aromatic whole crab" },
+  { src: foodSushiPlatter, name: "Salad Prawns", description: "Juicy prawns tossed in creamy fruit sauce" },
+  { src: foodChocolateDessert, name: "Cheese Baked Mussels", description: "Plump mussels baked under melted cheese" },
+  { src: foodMediterraneanVegetables, name: "Roasted Root Vegetables", description: "Sweet and savory earthy garden mix" },
+  { src: foodDuckBreast, name: "Pudding", description: "Silky smooth, sweet, comforting classic dessert" },
+  { src: foodFreshOysters, name: "Mini Cake", description: "A small, delightful, bite-sized indulgence" },
+  { src: foodMushroomRisotto, name: "Cheese Tart", description: "Buttery crust with rich, molten cheese filling" },
 ];
 
 const testimonials = [
@@ -232,10 +233,10 @@ const Index = () => {
   };
 
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  
+
   // YouTube URL without autoplay initially
   const youtubeUrl = `https://www.youtube.com/embed/MSuWgKDOohw?autoplay=0&mute=1&loop=1&playlist=MSuWgKDOohw&controls=0&showinfo=0&rel=0&modestbranding=1&background=1&vq=hd1440`;
-  
+
   // YouTube URL with autoplay when playing
   const playingYoutubeUrl = `https://www.youtube.com/embed/MSuWgKDOohw?autoplay=1&mute=0&loop=1&playlist=MSuWgKDOohw&controls=0&showinfo=0&rel=0&modestbranding=1&background=1&vq=hd1440`;
 
@@ -273,7 +274,7 @@ const Index = () => {
       <section id="scenery" className="py-20 px-6 bg-gradient-to-b from-background to-secondary/20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Resort Scenery</h2>
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Resort Scenery</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Discover the breathtaking beauty of our resort through stunning landscapes, elegant architecture, and tropical paradise settings that create an unforgettable experience.</p>
           </div>
 
@@ -325,7 +326,7 @@ const Index = () => {
       <section id="hiking" className="py-20 px-6 bg-gradient-to-b from-background to-secondary/20 mt-16">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Mountain Adventure Trail</h2>
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Mountain Adventure Trail</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Embark on a scenic journey through our protected national park. From a quick 2-minute boat ride to a 30-40 minute hike, discover breathtaking views that will leave you in awe.</p>
           </div>
 
@@ -359,7 +360,7 @@ const Index = () => {
       <section id="activities" className="py-20 px-6 bg-gradient-to-b from-secondary/20 to-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Endless Adventures Await</h2>
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Endless Adventures Await</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">From underwater exploration to mountain adventures, create lasting memories with activities designed for every member of your family.</p>
           </div>
 
@@ -391,7 +392,7 @@ const Index = () => {
       <section id="culinary" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Culinary Experiences</h2>
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Culinary Experiences</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Taste a world of flavors with our dishes, made using the best local ingredients and a touch of international flair. Every meal is a journey, set in a truly beautiful location</p>
           </div>
 
@@ -424,7 +425,7 @@ const Index = () => {
       <section id="testimonies" className="py-20 px-6 bg-gradient-to-b from-background to-primary/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Guest Experiences</h2>
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Guest Experiences</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Discover what makes our resort special through the words of our valued guests who have experienced the magic of our protected paradise.</p>
           </div>
 
@@ -500,7 +501,7 @@ const Index = () => {
       <section id="rooms" className="py-20 px-6 bg-gradient-to-b from-primary/5 to-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Spacious & Comfortable</h2>
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Spacious & Comfortable</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Discover our thoughtfully designed rooms, created for your comfort and relaxation. Each spacious room offers a clean, modern aesthetic, stunning views, and all the amenities you need for a perfect stay</p>
           </div>
 
@@ -659,7 +660,14 @@ const Index = () => {
       <footer id="contact" className="bg-primary py-16 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Contact Information: 2 columns */}
-          <h3 className="text-2xl font-bold mb-6 text-white">Pearl Island Resort</h3>
+          {/* <h3 className="text-2xl font-bold mb-6 text-white">Pearl Island Resort</h3> */}
+          <div className="flex items-center">
+            <img
+              src={pearlIslandLogo}
+              alt="Pearl Island Resort"
+              className="h-48 md:h-full w-auto" // h-40 on mobile, h-48 on md screens and up
+            />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
             {/* Sandakan Office */}
             <div>
@@ -669,17 +677,24 @@ const Index = () => {
                   <MapPin size={20} className="text-white shrink-0" />
                   <span>Ground Floor, Lot 38 &amp; 39, Block C, Bandar Tyng, Mile 5, North Road, PPM 255 Elopura, 90000 Sandakan, Sabah, Malaysia.</span>
                 </a>
-                <div className="flex items-center gap-2">
-                  <Phone size={18} className="text-white shrink-0" />
-                  <a href="tel:+6089673999" className="hover:underline transition-all duration-300 hover:scale-105">
-                    (+60) 89-673999
-                  </a>
-                  <a href="tel:+6089674999" className="hover:underline transition-all duration-300 hover:scale-105">
-                    (+60) 89-674999
-                  </a>
-                  <a href="tel:+6089675999" className="hover:underline transition-all duration-300 hover:scale-105">
-                    (+60) 89-675999
-                  </a>
+                <div className="flex items-start gap-2">
+                  {/* Phone Icon Column - Centered */}
+                  <div className="flex justify-center items-center h-6 shrink-0">
+                    <Phone size={18} className="text-white" />
+                  </div>
+
+                  {/* Phone Numbers Column - Stacked */}
+                  <div className="flex flex-col gap-2">
+                    <a href="tel:+6089673999" className="hover:underline transition-all duration-300 hover:scale-105">
+                      (+60) 89-673999
+                    </a>
+                    <a href="tel:+6089674999" className="hover:underline transition-all duration-300 hover:scale-105">
+                      (+60) 89-674999
+                    </a>
+                    <a href="tel:+6089675999" className="hover:underline transition-all duration-300 hover:scale-105">
+                      (+60) 89-675999
+                    </a>
+                  </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <a href="mailto:mail@pearlislandresorts.com" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
