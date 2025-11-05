@@ -5,7 +5,7 @@ import Navigation from "@/components/Navigation";
 import ContactDialog from "@/components/ContactDialog";
 import ImageModal from "@/components/ImageModal";
 import { Phone, Mail, MapPin } from "lucide-react";
-import pearlIslandLogo from "@/assets/logo/PIR_TB_WF.png";
+import pearlIslandLogo from "@/assets/logo/Latest_PIR_WB.png";
 
 // Import hero and hiking images
 import heroPlaceholder from "@/assets/scenery/PIScene3.jpg";
@@ -232,32 +232,18 @@ const Index = () => {
     setSelectedRoomImage(rooms[index]);
   };
 
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-
-  // YouTube URL without autoplay initially
-  const youtubeUrl = `https://www.youtube.com/embed/MSuWgKDOohw?autoplay=0&mute=1&loop=1&playlist=MSuWgKDOohw&controls=0&showinfo=0&rel=0&modestbranding=1&background=1&vq=hd1440`;
-
-  // YouTube URL with autoplay when playing
-  const playingYoutubeUrl = `https://www.youtube.com/embed/MSuWgKDOohw?autoplay=1&mute=0&loop=1&playlist=MSuWgKDOohw&controls=0&showinfo=0&rel=0&modestbranding=1&background=1&vq=hd1440`;
-
-  const toggleVideo = () => {
-    setIsVideoPlaying(!isVideoPlaying);
-  };
-
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
 
       {/* Hero Section */}
-      <section id="hero" className="relative h-screen flex flex-col md:block overflow-hidden bg-gradient-to-b from-background to-secondary/20">
-        {/* YouTube Video Background */}
-        <div className="relative z-10 w-full mt-16" style={{ aspectRatio: "16/9" }}>
-          <iframe src={isVideoPlaying ? playingYoutubeUrl : youtubeUrl} className="w-full h-full object-cover" allow="autoplay; encrypted-media" allowFullScreen title="Background Video" />
-          <div className="absolute inset-0 bg-black/40" />
+      <section id="hero" className="relative h-[28vh] mt-16 md:h-[90vh] overflow-hidden bg-gradient-to-b from-background to-secondary/20">
+        <div className="relative z-10 w-full h-full">
+          <iframe src="https://www.youtube.com/embed/CnJkyqFylo4?si=dVHyYzC3wwuYdsSR&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0" className="w-full h-full object-cover" allow="autoplay; encrypted-media" title="Pearl Island Video" />
         </div>
-
-        {/* Content Section */}
-        <div className="flex-1 flex items-center md:flex-col md:items-end justify-center md:justify-start md:mt-24 w-full md:absolute md:inset-0">
+      </section>
+      {/* Content Section */}
+      {/* <div className="flex-1 flex items-center md:flex-col md:items-end justify-center md:justify-start md:mt-24 w-full md:absolute md:inset-0">
           <div className="absolute inset-0 bg-black/40 hidden md:block"></div>
 
           <div className="text-center md:text-right text-white max-w-4xl px-6 w-full md:mb-14 md:w-1/3 py-8 md:py-0 relative z-10">
@@ -267,15 +253,14 @@ const Index = () => {
               {isVideoPlaying ? "Stop" : "Play Video"}
             </Button>
           </div>
-        </div>
-      </section>
+        </div> */}
 
       {/* Scenery Section */}
       <section id="scenery" className="py-20 px-6 bg-gradient-to-b from-background to-secondary/20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Resort Scenery</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Discover the breathtaking beauty of our resort through stunning landscapes, elegant architecture, and tropical paradise settings that create an unforgettable experience.</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">An unforgettable experience of stunning landscapes and elegant architecture in a tropical paradise.</p>
           </div>
 
           {/* Desktop: Instagram-style grid (4 columns x 3 rows) */}
@@ -293,7 +278,7 @@ const Index = () => {
 
           {/* Mobile: Tinder-style carousel */}
           <div className="md:hidden max-w-sm mx-auto">
-            <div className="relative rounded-xl overflow-hidden shadow-2xl cursor-pointer" style={{ aspectRatio: "9/16" }} onClick={() => setSelectedSceneryImage(sceneryGallery[currentSceneryIndex])}>
+            <div className="relative rounded-xl overflow-hidden shadow-2xl cursor-pointer h-96" onClick={() => setSelectedSceneryImage(sceneryGallery[currentSceneryIndex])}>
               <img src={sceneryGallery[currentSceneryIndex].src} alt={sceneryGallery[currentSceneryIndex].alt} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -323,11 +308,11 @@ const Index = () => {
       </section>
 
       {/* Hiking Section */}
-      <section id="hiking" className="py-20 px-6 bg-gradient-to-b from-background to-secondary/20 mt-16">
+      <section id="hiking" className="py-20 px-6 bg-gradient-to-b from-background to-secondary/20 mt-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Mountain Adventure Trail</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Embark on a scenic journey through our protected national park. From a quick 2-minute boat ride to a 30-40 minute hike, discover breathtaking views that will leave you in awe.</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Journey through our protected national park and be awed by its breathtaking scenery.</p>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-8 lg:h-[600px]">
@@ -361,7 +346,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Endless Adventures Await</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">From underwater exploration to mountain adventures, create lasting memories with activities designed for every member of your family.</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">From oceans to peaks, create unforgettable family memories with activities for all.</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -393,7 +378,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Culinary Experiences</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Taste a world of flavors with our dishes, made using the best local ingredients and a touch of international flair. Every meal is a journey, set in a truly beautiful location</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Every meal is a journey—local ingredients meet global flair in a stunning setting.</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -426,7 +411,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Guest Experiences</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Discover what makes our resort special through the words of our valued guests who have experienced the magic of our protected paradise.</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Our Guests Tell the Story of Our Paradise.</p>
           </div>
 
           {/* Desktop/Tablet: Grid layout */}
@@ -502,7 +487,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Spacious & Comfortable</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Discover our thoughtfully designed rooms, created for your comfort and relaxation. Each spacious room offers a clean, modern aesthetic, stunning views, and all the amenities you need for a perfect stay</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Your sanctuary of comfort and style. Unwind in our spacious, modern rooms with breathtaking views.</p>
           </div>
 
           {/* Desktop: Pinterest-style layout */}
@@ -647,7 +632,7 @@ const Index = () => {
               trigger={ */}
             <a href="https://dive-malaysia.com/enquiries/" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-12 py-6 text-xl font-semibold rounded-full transition-all duration-300 hover:scale-105">
-                Book Now
+                Enquiry
               </Button>
             </a>
             {/* } */}
@@ -661,11 +646,11 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           {/* Contact Information: 2 columns */}
           {/* <h3 className="text-2xl font-bold mb-6 text-white">Pearl Island Resort</h3> */}
-          <div className="flex items-center">
+          <div className="flex items-center justify-center mb-10 md:mb-20">
             <img
               src={pearlIslandLogo}
               alt="Pearl Island Resort"
-              className="h-48 md:h-full w-auto" // h-40 on mobile, h-48 on md screens and up
+              className="h-24 md:h-72 w-auto" // h-40 on mobile, h-48 on md screens and up
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
@@ -742,7 +727,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-white mt-12 pt-8 text-center">
-            <p className="text-white">© 2025 Pearl Island Resort. All rights reserved.</p>
+            <p className="text-white">© 2025 An INBAYU Collection. All rights reserved.</p>
           </div>
         </div>
       </footer>

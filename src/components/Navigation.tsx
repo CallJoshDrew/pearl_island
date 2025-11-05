@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import ContactDialog from "@/components/ContactDialog";
-import pearlIslandLogo from "@/assets/logo/PIR_TB_WF.png";
+import pearlIslandLogo from "@/assets/logo/PIR_only.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +26,7 @@ const Navigation = () => {
             <img
               src={pearlIslandLogo} 
               alt="Pearl Island Resort"
-              className="h-8 w-auto" // adjust size as needed
+              className="h-3 w-auto" // adjust size as needed
             />
           </div>
 
@@ -64,7 +64,7 @@ const Navigation = () => {
               }
             /> */}
             <a href="https://dive-malaysia.com/enquiries/" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-primary hover:bg-primary/90 text-white px-6">Book Now</Button>
+              <Button className="bg-primary hover:bg-primary/90 text-white px-6">Enquiry</Button>
             </a>
           </div>
 
@@ -103,7 +103,7 @@ const Navigation = () => {
                 Contact Us
               </button>
               <a href="https://dive-malaysia.com/enquiries/" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-primary hover:bg-primary/90 text-white w-full mt-4">Book Now</Button>
+                <Button className="bg-primary hover:bg-primary/90 text-white w-full mt-4">Enquiry</Button>
               </a>
             </div>
           </div>
