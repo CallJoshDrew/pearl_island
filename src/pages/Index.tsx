@@ -239,7 +239,7 @@ const Index = () => {
       {/* Hero Section */}
       <section id="hero" className="relative h-[28vh] mt-16 md:h-[90vh] overflow-hidden bg-gradient-to-b from-background to-secondary/20">
         <div className="relative z-10 w-full h-full">
-          <iframe src="https://www.youtube.com/embed/CnJkyqFylo4?si=dVHyYzC3wwuYdsSR&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0" className="w-full h-full object-cover" allow="autoplay; encrypted-media" title="Pearl Island Video" />
+          <iframe src="https://www.youtube.com/embed/CnJkyqFylo4?si=dVHyYzC3wwuYdsSR&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0&vq=hd1440" className="w-full h-full object-cover" allow="autoplay; encrypted-media" title="Pearl Island Video" />
         </div>
       </section>
       {/* Content Section */}
