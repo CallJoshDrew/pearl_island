@@ -16,9 +16,9 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm">
+    <nav className="fixed h-14 top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
           {/* <div className="font-bold text-xl text-primary">Pearl Island Resort</div> */}
           {/* Logo */}
@@ -64,7 +64,7 @@ const Navigation = () => {
               }
             /> */}
             <a href="https://dive-malaysia.com/enquiries/" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-primary hover:bg-primary/90 text-white px-6">Enquiry</Button>
+              <Button className="bg-primary hover:bg-primary/90 text-white px-4 h-8">Enquiry</Button>
             </a>
           </div>
 
