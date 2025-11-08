@@ -727,9 +727,9 @@ const Index = () => {
               <span className="text-white">Rednotes</span> */}
             </div>
           </div>
-          <div className="border-t border-white mt-12 pt-8 flex justify-center">
-          <img src={inbayuRightReserved} alt="an INBAYU Collection logo" className="h-4 md:h-6 object-cover" />
-            {/* <p className="text-white">© 2025 An INBAYU Collection. All rights reserved.</p> */}
+          <div className="border-t border-white mt-12 pt-8 flex justify-center gap-2">
+            <p className="text-white text-xs">© 2025</p>
+          <img src={inbayuRightReserved} alt="an INBAYU Collection logo" className="h-4 md:h-4 object-cover" />
           </div>
         </div>
       </footer>
