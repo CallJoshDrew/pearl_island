@@ -20,21 +20,15 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          {/* <div className="font-bold text-xl text-primary">Pearl Island Resort</div> */}
-          {/* Logo */}
-          <div className="flex items-center">
-            <img
-              src={pearlIslandLogo} 
-              alt="Pearl Island Resort"
-              className="h-3 w-auto" // adjust size as needed
-            />
-          </div>
+          <button onClick={() => scrollToSection("hero")} className="text-foreground hover:text-primary transition-colors">
+            <img src={pearlIslandLogo} alt="Pearl Island Resort" className="h-3 w-auto" />
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection("hero")} className="text-foreground hover:text-primary transition-colors">
-              Home
-            </button>
+            <a href="https://inbayu.vercel.app" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              INBAYU
+            </a>
             <button onClick={() => scrollToSection("scenery")} className="text-foreground hover:text-primary transition-colors">
               Scenery
             </button>
@@ -78,9 +72,9 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border/50 py-4">
             <div className="flex flex-col space-y-4 px-4">
-              <button onClick={() => scrollToSection("hero")} className="text-left text-foreground hover:text-primary transition-colors py-2">
-                Home
-              </button>
+              <a href="https://inbayu.vercel.app" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+                INBAYU
+              </a>
               <button onClick={() => scrollToSection("scenery")} className="text-left text-foreground hover:text-primary transition-colors py-2">
                 Scenery
               </button>

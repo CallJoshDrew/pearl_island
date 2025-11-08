@@ -6,7 +6,7 @@ import ContactDialog from "@/components/ContactDialog";
 import ImageModal from "@/components/ImageModal";
 import { Phone, Mail, MapPin } from "lucide-react";
 import pearlIslandLogo from "@/assets/logo/Latest_PIR_WB.png";
-import inbayuRightReserved from "@/assets/logo/All_right_reserved.png"; 
+import inbayuRightReserved from "@/assets/logo/All_right_reserved.png";
 
 // Import hero and hiking images
 import heroPlaceholder from "@/assets/scenery/PIScene3.jpg";
@@ -240,7 +240,7 @@ const Index = () => {
       {/* Hero Section */}
       <section id="hero" className="relative h-[28vh] mt-14 md:h-[90vh] overflow-hidden bg-gradient-to-b from-background to-secondary/20">
         <div className="relative z-10 w-full h-full">
-          <iframe src="https://www.youtube.com/embed/CnJkyqFylo4?si=dVHyYzC3wwuYdsSR&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0&vq=hd1440" className="w-full h-full object-cover" allow="autoplay; encrypted-media" title="Pearl Island Video" />
+          <iframe src="https://www.youtube.com/embed/CnJkyqFylo4?si=dVHyYzC3wwuYdsSR&autoplay=1&mute=0&loop=1&playlist=CnJkyqFylo4&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0&vq=hd1440" className="w-full h-full object-cover" allow="autoplay; encrypted-media" title="Pearl Island Video" />
         </div>
       </section>
       {/* Content Section */}
@@ -729,7 +729,7 @@ const Index = () => {
           </div>
           <div className="border-t border-white mt-12 pt-8 flex justify-center gap-2">
             <p className="text-white text-xs">© 2025</p>
-          <img src={inbayuRightReserved} alt="an INBAYU Collection logo" className="h-4 md:h-4 object-cover" />
+            <img src={inbayuRightReserved} alt="an INBAYU Collection logo" className="h-4 md:h-4 object-cover" />
           </div>
         </div>
       </footer>
