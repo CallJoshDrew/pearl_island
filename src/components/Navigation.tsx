@@ -50,16 +50,10 @@ const Navigation = () => {
             <button onClick={() => scrollToSection("contacts")} className="text-foreground hover:text-primary transition-colors">
               Contact Us
             </button>
-            {/* <ContactDialog
-              trigger={
-                <button className="text-foreground hover:text-primary transition-colors">
-                  Enquiry
-                </button>
-              }
-            /> */}
-            <a href="https://dive-malaysia.com/enquiries/" target="_blank" rel="noopener noreferrer">
+            <ContactDialog trigger={<button className="bg-primary hover:bg-primary/90 text-white px-4 h-8 rounded-sm">Enquiry</button>} />
+            {/* <a href="https://dive-malaysia.com/enquiries/" target="_blank" rel="noopener noreferrer">
               <Button className="bg-primary hover:bg-primary/90 text-white px-4 h-8">Enquiry</Button>
-            </a>
+            </a> */}
           </div>
 
           {/* Mobile menu button */}
@@ -96,9 +90,10 @@ const Navigation = () => {
               <button onClick={() => scrollToSection("contacts")} className="text-left text-foreground hover:text-primary transition-colors py-2">
                 Contact Us
               </button>
-              <a href="https://dive-malaysia.com/enquiries/" target="_blank" rel="noopener noreferrer">
+              <ContactDialog trigger={<button className="bg-primary hover:bg-primary/90 text-white w-full py-2 rounded-sm mt-4">Enquiry</button>} />
+              {/* <a href="https://dive-malaysia.com/enquiries/" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-primary hover:bg-primary/90 text-white w-full mt-4">Enquiry</Button>
-              </a>
+              </a> */}
             </div>
           </div>
         )}
