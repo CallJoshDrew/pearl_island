@@ -4,7 +4,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import ContactDialog from "@/components/ContactDialog";
 import ImageModal from "@/components/ImageModal";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Instagram, Twitter } from "lucide-react";
+import tiktok from "@/assets/logo/tiktok.png";
+import rednote from "@/assets/logo/rednote.png";
 import pearlIslandLogo from "@/assets/logo/Latest_PIR_WB.png";
 import inbayuRightReserved from "@/assets/logo/All_right_reserved.png";
 
@@ -629,15 +631,12 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-            {/* <ContactDialog
-              trigger={ */}
-            <a href="https://dive-malaysia.com/enquiries/" target="_blank" rel="noopener noreferrer">
+              <ContactDialog trigger={<Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-12 py-6 text-xl font-semibold rounded-full transition-all duration-300 hover:scale-105">Enquiry</Button>} />
+            {/* <a href="https://dive-malaysia.com/enquiries/" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-12 py-6 text-xl font-semibold rounded-full transition-all duration-300 hover:scale-105">
                 Enquiry
               </Button>
-            </a>
-            {/* } */}
-            {/* /> */}
+            </a> */}
           </div>
         </div>
       </section>
@@ -651,82 +650,94 @@ const Index = () => {
             <img
               src={pearlIslandLogo}
               alt="Pearl Island Resort"
-              className="h-24 md:h-72 w-auto" // h-40 on mobile, h-48 on md screens and up
+              className="h-28 md:h-72 w-auto" // h-40 on mobile, h-48 on md screens and up
             />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             {/* Sandakan Office */}
-            <div>
-              <div className="space-y-3 text-white">
-                <p>Sandakan Office</p>
-                <a href="https://maps.app.goo.gl/pkaqfYKCzzatt6kC9" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
-                  <MapPin size={20} className="text-white shrink-0" />
-                  <span>Ground Floor, Lot 38 &amp; 39, Block C, Bandar Tyng, Mile 5, North Road, PPM 255 Elopura, 90000 Sandakan, Sabah, Malaysia.</span>
-                </a>
-                <div className="flex items-start gap-2">
-                  {/* Phone Icon Column - Centered */}
-                  <div className="flex justify-center items-center h-6 shrink-0">
-                    <Phone size={18} className="text-white" />
-                  </div>
+            <div className="space-y-4 text-white">
+              <h4 className="text-xl font-semibold mb-6 text-white">Sandakan Office</h4>
+              <a href="https://maps.app.goo.gl/pkaqfYKCzzatt6kC9" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
+                {/* <MapPin size={20} className="text-white shrink-0" /> */}
+                <span>Ground Floor, Lot 38 &amp; 39, Block C, Bandar Tyng, Mile 5, North Road, PPM 255 Elopura, 90000 Sandakan, Sabah, Malaysia.</span>
+              </a>
+              <div className="flex items-start gap-2">
+                {/* Phone Icon Column - Centered */}
+                {/* <div className="flex justify-center items-center h-6 shrink-0">
+                  <Phone size={18} className="text-white" />
+                </div> */}
 
-                  {/* Phone Numbers Column - Stacked */}
-                  <div className="flex flex-col gap-2">
-                    <a href="tel:+6089673999" className="hover:underline transition-all duration-300 hover:scale-105">
-                      (+60) 89-673999
-                    </a>
-                    <a href="tel:+6089674999" className="hover:underline transition-all duration-300 hover:scale-105">
-                      (+60) 89-674999
-                    </a>
-                    <a href="tel:+6089675999" className="hover:underline transition-all duration-300 hover:scale-105">
-                      (+60) 89-675999
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <a href="mailto:mail@pearlislandresorts.com" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
-                    <Mail size={18} className="text-white shrink-0" />
-                    <span>mail@pearlislandresorts.com</span>
+                {/* Phone Numbers Column - Stacked */}
+                <div className="flex flex-col gap-2">
+                  <a href="tel:+6089673999" className="hover:underline transition-all duration-300 hover:scale-105">
+                    (+60) 89-673999
+                  </a>
+                  <a href="tel:+6089674999" className="hover:underline transition-all duration-300 hover:scale-105">
+                    (+60) 89-674999
+                  </a>
+                  <a href="tel:+6089675999" className="hover:underline transition-all duration-300 hover:scale-105">
+                    (+60) 89-675999
                   </a>
                 </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <a href="mailto:mail@pearlislandresorts.com" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
+                  {/* <Mail size={18} className="text-white shrink-0" /> */}
+                  <span>mail@pearlislandresorts.com</span>
+                </a>
               </div>
             </div>
             {/* Tawau Office */}
-            <div>
-              <div className="space-y-3 text-white">
-                <p>Tawau Office</p>
-                <a href="https://maps.app.goo.gl/7mouAogF627ktS2H7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
-                  <MapPin size={20} className="text-white shrink-0" />
-                  <span>1st Floor, No. 484, Block P, Bandar Sabindo, P.O Box 61120, 91021 Tawau, Sabah, Malaysia.</span>
+            <div className="space-y-4 text-white">
+              <h4 className="text-xl font-semibold mb-6 text-white">Tawau Office</h4>
+              <a href="https://maps.app.goo.gl/7mouAogF627ktS2H7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
+                {/* <MapPin size={20} className="text-white shrink-0" /> */}
+                <span>1st Floor, No. 484, Block P, Bandar Sabindo, P.O Box 61120, 91021 Tawau, Sabah, Malaysia.</span>
+              </a>
+              <div className="flex items-center gap-2">
+                {/* <Phone size={18} className="text-white shrink-0" /> */}
+                <a href="tel:+6089765200" className="hover:underline transition-all duration-300 hover:scale-105">
+                  (+60) 89-765200
                 </a>
-                <div className="flex items-center gap-2">
-                  <Phone size={18} className="text-white shrink-0" />
-                  <a href="tel:+6089765200" className="hover:underline transition-all duration-300 hover:scale-105">
-                    (+60) 89-765200
-                  </a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <a href="mailto:mail@pearlislandresorts.com" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
-                    <Mail size={18} className="text-white shrink-0" />
-                    <span>mail@pearlislandresorts.com</span>
-                  </a>
-                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <a href="mailto:mail@pearlislandresorts.com" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
+                  {/* <Mail size={18} className="text-white shrink-0" /> */}
+                  <span>mail@pearlislandresorts.com</span>
+                </a>
               </div>
             </div>
-          </div>
-          {/* Social Media & Contact: full width below */}
-          <div id="contacts">
-            <h4 className="text-xl font-semibold mb-6 text-white">Follow Us</h4>
-            <div className="flex flex-wrap gap-4 mb-6">
-              <a href="https://www.facebook.com/profile.php?id=61574060822782" target="_blank" className="text-white transition-all duration-300 hover:scale-110">
-                Facebook
+            {/* Social Media & Contact: full width below */}
+            <div id="contacts" className="space-y-4 text-white">
+              <h4 className="text-xl font-semibold mb-6 text-white">Follow Us</h4>
+              <p className="text-gray-300 leading-relaxed">Experience Pure, Unforgettable Tranquility. Immerse Yourself in the Untouched Island Beauty of Semporna.</p>
+              <div className="flex space-x-5 items-center">
+              <a href="https://www.facebook.com/SipadanKapalaiDiveResort" target="_blank" className="text-ocean-pearl hover:text-white smooth-transition">
+                <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://www.instagram.com/boheydulangresort/" target="_blank" className="text-white transition-all duration-300 hover:scale-110">
-                Instagram
+              <a href="https://www.instagram.com/sipadankapalaidiveresort/" target="_blank" className="text-ocean-pearl hover:text-white smooth-transition">
+                <Instagram className="w-5 h-5" />
               </a>
-              {/* <span className="text-white">TikTok</span>
-              <span className="text-white">Rednotes</span> */}
+              <a href="#" className="text-ocean-pearl hover:text-white smooth-transition">
+                <img src={tiktok} alt="Sipadan Kapalai TikTok Social Media" className="w-4 h-4" />
+              </a>
+              <a href="#" className="text-ocean-pearl hover:text-white smooth-transition">
+                <img src={rednote} alt="Sipadan Kapalai Rednote Social Media" className="w-10 h-10" />
+              </a>
+            </div>
+              {/* <div className="flex flex-wrap gap-4 mb-6">
+                <a href="https://www.facebook.com/profile.php?id=61574060822782" target="_blank" className="text-white transition-all duration-300 hover:scale-110">
+                  Facebook
+                </a>
+                <a href="https://www.instagram.com/boheydulangresort/" target="_blank" className="text-white transition-all duration-300 hover:scale-110">
+                  Instagram
+                </a>
+                {/* <span className="text-white">TikTok</span>
+              <span className="text-white">Rednotes</span>
+              </div> */}
             </div>
           </div>
+
           <div className="border-t border-white mt-12 pt-8 flex justify-center gap-2">
             <p className="text-white text-xs">© 2025</p>
             <img src={inbayuRightReserved} alt="an INBAYU Collection logo" className="h-4 md:h-4 object-cover" />
