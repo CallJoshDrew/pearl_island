@@ -108,7 +108,7 @@ This inquiry was submitted via the website on ${new Date().toLocaleString()}
     `.trim();
 
     // Create mailto link
-    const mailtoLink = `mailto:josiahsoh@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoLink = `mailto:mail@pearlislandresorts.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
 
     // Open the email client
     window.open(mailtoLink, "_blank");

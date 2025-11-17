@@ -26,7 +26,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="https://inbayu.vercel.app" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+            <a href="https://inbayuresorts.com" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
               INBAYU
             </a>
             <button onClick={() => scrollToSection("scenery")} className="text-foreground hover:text-primary transition-colors">
