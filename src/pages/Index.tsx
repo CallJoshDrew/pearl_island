@@ -184,7 +184,7 @@ const sceneryGallery = [
   { src: sceneryPoolInfinity, alt: "Dining Hall", title: "Elegant Dining", description: "Sophisticated dining hall with panoramic ocean views and mountains" },
   { src: sceneryBeachWhiteSand, alt: "White Sand Beach", title: "Dining Hall Center", description: "Enjoy watching sea turtles in the center hall while dining" },
   { src: scenerySpaPavilion, alt: "Spa Pavilion", title: "Walkway Path", description: "Enjoying the sky and sea view while walking" },
-  { src: sceneryLobby, alt: "Resort Lobby", title: "Towards Diving Center", description: "A short walk before going for divng center" },
+  { src: sceneryLobby, alt: "Resort Lobby", title: "Towards Diving Center", description: "A short walk before going for diving center" },
   { src: sceneryWoodenPier, alt: "Wooden Pier", title: "Water Chalets", description: "Our spacious and comfortable water chalets" },
   { src: sceneryOutdoorBar, alt: "Tiki Bar", title: "Horizontal View", description: "Endless joy while going for adventures" },
   { src: sceneryGardenWalkway, alt: "Garden Path", title: "Sunset View", description: "Time pass while enjoying the sunset" },
@@ -631,7 +631,13 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-              <ContactDialog trigger={<Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-12 py-6 text-xl font-semibold rounded-full transition-all duration-300 hover:scale-105">Enquiry</Button>} />
+            <ContactDialog
+              trigger={
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-12 py-6 text-xl font-semibold rounded-full transition-all duration-300 hover:scale-105">
+                  Enquiry
+                </Button>
+              }
+            />
             {/* <a href="https://dive-malaysia.com/enquiries/" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-12 py-6 text-xl font-semibold rounded-full transition-all duration-300 hover:scale-105">
                 Enquiry
@@ -646,14 +652,8 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           {/* Contact Information: 2 columns */}
           {/* <h3 className="text-2xl font-bold mb-6 text-white">Pearl Island Resort</h3> */}
-          <div className="flex items-center justify-center mb-10 md:mb-20">
-            <img
-              src={pearlIslandLogo}
-              alt="Pearl Island Resort"
-              className="h-28 md:h-72 w-auto" // h-40 on mobile, h-48 on md screens and up
-            />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             {/* Sandakan Office */}
             <div className="space-y-4 text-white">
               <h4 className="text-xl font-semibold mb-6 text-white">Sandakan Office</h4>
@@ -707,24 +707,44 @@ const Index = () => {
                 </a>
               </div>
             </div>
+            {/* KK Office */}
+            <div className="space-y-4 text-white">
+              <h4 className="text-xl font-semibold mb-6 text-white">Kota Kinabalu Office</h4>
+              <a href="https://maps.app.goo.gl/7mouAogF627ktS2H7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
+                {/* <MapPin size={20} className="text-white shrink-0" /> */}
+                <span>Block B, 1st Floor, Lot B-1-1, Plaza Tanjung Aru, Jalan Mat Salleh, Tanjung Aru, 88100 Kota Kinabalu, Sabah, Malaysia.</span>
+              </a>
+              <div className="flex items-center gap-2">
+                {/* <Phone size={18} className="text-white shrink-0" /> */}
+                <a href="tel:+60178995700" className="hover:underline transition-all duration-300 hover:scale-105">
+                  (+60) 17-899 5700
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <a href="mailto:mail@pearlislandresorts.com" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
+                  {/* <Mail size={18} className="text-white shrink-0" /> */}
+                  <span>mail@pearlislandresorts.com</span>
+                </a>
+              </div>
+            </div>
             {/* Social Media & Contact: full width below */}
             <div id="contacts" className="space-y-4 text-white">
               <h4 className="text-xl font-semibold mb-6 text-white">Follow Us</h4>
               <p className="text-gray-300 leading-relaxed">Experience Pure, Unforgettable Tranquility. Immerse Yourself in the Untouched Island Beauty of Semporna.</p>
               <div className="flex space-x-5 items-center">
-              <a href="https://www.facebook.com/SipadanKapalaiDiveResort" target="_blank" className="text-ocean-pearl hover:text-white smooth-transition">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="https://www.instagram.com/sipadankapalaidiveresort/" target="_blank" className="text-ocean-pearl hover:text-white smooth-transition">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-ocean-pearl hover:text-white smooth-transition">
+                <a href="https://www.facebook.com/SipadanKapalaiDiveResort" target="_blank" className="text-ocean-pearl hover:text-white smooth-transition">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="https://www.instagram.com/sipadankapalaidiveresort/" target="_blank" className="text-ocean-pearl hover:text-white smooth-transition">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                {/* <a href="#" className="text-ocean-pearl hover:text-white smooth-transition">
                 <img src={tiktok} alt="Sipadan Kapalai TikTok Social Media" className="w-4 h-4" />
               </a>
               <a href="#" className="text-ocean-pearl hover:text-white smooth-transition">
                 <img src={rednote} alt="Sipadan Kapalai Rednote Social Media" className="w-10 h-10" />
-              </a>
-            </div>
+              </a> */}
+              </div>
               {/* <div className="flex flex-wrap gap-4 mb-6">
                 <a href="https://www.facebook.com/profile.php?id=61574060822782" target="_blank" className="text-white transition-all duration-300 hover:scale-110">
                   Facebook
@@ -738,9 +758,16 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="border-t border-white mt-12 pt-8 flex justify-center gap-2">
-            <p className="text-white text-xs">© 2025</p>
-            <img src={inbayuRightReserved} alt="an INBAYU Collection logo" className="h-4 md:h-4 object-cover" />
+          <div className="border-t border-white mt-12 pt-8 flex flex-col items-center justify-center gap-2">
+            <div className="flex items-center justify-center my-10 md:my-10">
+              <img
+                src={pearlIslandLogo}
+                alt="Pearl Island Resort"
+                className="h-28 md:h-72 w-auto" // h-40 on mobile, h-48 on md screens and up
+              />
+            </div>
+            <p className="text-white text-xs md:text-sm">© 2025 All Rights Reserved.</p>
+            {/* <img src={inbayuRightReserved} alt="an INBAYU Collection logo" className="h-4 md:h-4 object-cover" /> */}
           </div>
         </div>
       </footer>
