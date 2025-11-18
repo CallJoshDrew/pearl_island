@@ -63,8 +63,8 @@ const ContactDialog = ({ trigger }: ContactDialogProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validation for required fields
-    if (!formData.fullName || !formData.email || !formData.contactNumber || !formData.nationality || !formData.arrivalDate || !formData.departureDate || !formData.numberOfRooms || !formData.numberOfDivers || !formData.numberOfNonDivers) {
+    // Validation for required fields (arrivalDate removed from required list)
+    if (!formData.fullName || !formData.email || !formData.contactNumber || !formData.nationality || !formData.departureDate || !formData.numberOfRooms || !formData.numberOfDivers || !formData.numberOfNonDivers) {
       toast({
         title: "Please fill in all required fields",
         variant: "destructive",
@@ -72,8 +72,8 @@ const ContactDialog = ({ trigger }: ContactDialogProps) => {
       return;
     }
 
-    // Check if departure date is after arrival date
-    if (formData.departureDate <= formData.arrivalDate) {
+    // Check if departure date is after arrival date only when arrivalDate is provided
+    if (formData.arrivalDate && formData.departureDate && formData.departureDate <= formData.arrivalDate) {
       toast({
         title: "Departure date must be after arrival date",
         variant: "destructive",
@@ -94,8 +94,8 @@ PERSONAL INFORMATION:
 • Contact Number: ${formData.countryCode} ${formData.contactNumber}
 
 BOOKING DETAILS:
-• Arrival Date: ${format(formData.arrivalDate, "PPPP")}
-• Departure Date: ${format(formData.departureDate, "PPPP")}
+• Arrival Date: ${formData.arrivalDate ? format(formData.arrivalDate, "PPPP") : "Not provided"}
+• Departure Date: ${formData.departureDate ? format(formData.departureDate, "PPPP") : "Not provided"}
 • Number of Rooms: ${formData.numberOfRooms}
 • Number of Divers: ${formData.numberOfDivers}
 • Number of Non-divers: ${formData.numberOfNonDivers}
@@ -249,7 +249,7 @@ This inquiry was submitted via the website on ${new Date().toLocaleString()}
           {/* Arrival and Departure Dates */}
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label>Arrival Date *</Label>
+              <Label>Arrival Date </Label>
               <Popover>
                 <PopoverTrigger asChild>
                   <Button variant="outline" className={cn("w-full justify-start text-left font-normal bg-background/60 border-border", !formData.arrivalDate && "placeholder:text-gray-500")}>
