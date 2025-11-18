@@ -732,12 +732,12 @@ const Index = () => {
               <h4 className="text-xl font-semibold mb-6 text-white">Follow Us</h4>
               <p className="text-gray-300 leading-relaxed">Experience Pure, Unforgettable Tranquility. Immerse Yourself in the Untouched Island Beauty of Semporna.</p>
               <div className="flex space-x-5 items-center">
-                <a href="https://www.facebook.com/SipadanKapalaiDiveResort" target="_blank" className="text-ocean-pearl hover:text-white smooth-transition">
+                <a href="https://www.facebook.com/profile.php?id=61574060822782" target="_blank" className="text-ocean-pearl hover:text-white smooth-transition">
                   <Facebook className="w-5 h-5" />
                 </a>
-                <a href="https://www.instagram.com/sipadankapalaidiveresort/" target="_blank" className="text-ocean-pearl hover:text-white smooth-transition">
+                {/* <a href="https://www.instagram.com/boheydulangresort/" target="_blank" className="text-ocean-pearl hover:text-white smooth-transition">
                   <Instagram className="w-5 h-5" />
-                </a>
+                </a> */}
                 {/* <a href="#" className="text-ocean-pearl hover:text-white smooth-transition">
                 <img src={tiktok} alt="Sipadan Kapalai TikTok Social Media" className="w-4 h-4" />
               </a>
