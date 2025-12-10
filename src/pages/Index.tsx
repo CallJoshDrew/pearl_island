@@ -9,6 +9,8 @@ import tiktok from "@/assets/logo/tiktok.png";
 import rednote from "@/assets/logo/rednote.png";
 import pearlIslandLogo from "@/assets/logo/Latest_PIR_WB.png";
 import inbayuRightReserved from "@/assets/logo/All_right_reserved.png";
+import { useTranslation } from "react-i18next";
+import "@/i18n/config"; // ensure i18n is initialized
 
 // Import hero and hiking images
 import heroPlaceholder from "@/assets/scenery/PIScene3.jpg";
@@ -70,145 +72,128 @@ import sceneryWellnessCenter from "@/assets/scenery/PIScene10.jpg";
 import sceneryTennisCourt from "@/assets/scenery/PIScene11.jpg";
 import scenerySunsetTerrace from "@/assets/scenery/PIScene12.jpg";
 
-const hikingImages = [
-  {
-    src: bdHiking,
-    alt: "2 minutes journey from Pearl Island Resort to Bohey Dulang Island",
-    title: "Arrival at Bohey Dulang ",
-    description: "2 minutes journey from Pearl Island Resort",
-  },
-  {
-    src: hikingStart,
-    alt: "Hiking Trail Information",
-    title: "Welcome to the Trail",
-    description: "Guided start point with trail information",
-  },
-  {
-    src: hikingStairs,
-    alt: "Natural Mountain Trail with Staircase",
-    title: "The Staircase Path",
-    description: "Rocky trail through staircase",
-  },
-  {
-    src: mountainTopView1,
-    alt: "Mountain Top View",
-    title: "Panoramic Summit View",
-    description: "Stunning ocean and island vistas",
-  },
-  {
-    src: mountainTopView2,
-    alt: "Mountain Top View",
-    title: "Panoramic Summit View",
-    description: "Stunning ocean and island vistas",
-  },
-];
-
-const activities = [
-  { src: divingActivity, alt: "Scuba Diving", title: "Diving" },
-  { src: snorkelingActivity, alt: "Snorkeling", title: "Snorkeling" },
-  { src: kayakingActivity, alt: "Kayaking", title: "Kayaking" },
-  { src: cyclingActivity, alt: "Cycling", title: "Cycling" },
-  { src: relaxingActivity, alt: "Relaxing", title: "Relaxation" },
-  { src: diningActivity, alt: "Fine Dining", title: "Dining" },
-  { src: sunsetActivity, alt: "Sunset Viewing", title: "Sunset Views" },
-  { src: conversationActivity, alt: "Social Time", title: "Social" },
-];
-
-const foodGallery = [
-  { src: foodSeafoodPlatter, name: "Aglio Olio Seafood Spaghetti", description: "Zesty spaghetti, tossed with mixed seafood" },
-  { src: foodBeefSteak, name: "Korean Chicken Wings", description: "Crispy, sweet, and spicy Korean favorite" },
-  { src: foodLobsterThermidor, name: "Roasted Duck", description: "Tender, succulent duck with perfectly crisp skin" },
-  { src: foodTrufflePasta, name: "Salt & Pepper Crab", description: "Wok-tossed, savory, and aromatic whole crab" },
-  { src: foodSushiPlatter, name: "Salad Prawns", description: "Juicy prawns tossed in creamy fruit sauce" },
-  { src: foodChocolateDessert, name: "Cheese Baked Mussels", description: "Plump mussels baked under melted cheese" },
-  { src: foodMediterraneanVegetables, name: "Roasted Root Vegetables", description: "Sweet and savory earthy garden mix" },
-  { src: foodDuckBreast, name: "Pudding", description: "Silky smooth, sweet, comforting classic dessert" },
-  { src: foodFreshOysters, name: "Mini Cake", description: "A small, delightful, bite-sized indulgence" },
-  { src: foodMushroomRisotto, name: "Cheese Tart", description: "Buttery crust with rich, molten cheese filling" },
-];
-
-const testimonials = [
-  {
-    name: "Ocean Prince",
-    platform: "Trip.com",
-    rating: 5,
-    text: "Such a great place to be away from city busy life. I like how the resort is in between mountain and sea. The view is stunning especially during sunset.",
-  },
-  {
-    name: "Zhunemiguiyi",
-    platform: "Trip.com",
-    rating: 5,
-    text: "The natural environment is stunning, with countless schools of fish and turtles lurking in the water. Snorkeling at the pier is also excellent, with abundant coral and fish.",
-  },
-  {
-    name: "_WeChat32029****",
-    platform: "Trip.com",
-    rating: 5,
-    text: "The scenery is very beautiful. There are many fish, coral reefs and turtles for snorkeling.",
-  },
-  {
-    name: "Yilushunfeng",
-    platform: "Trip.com",
-    rating: 5,
-    text: "Hygiene: Clean and hygienic.",
-  },
-  {
-    name: "tk650156",
-    platform: "Trip.com",
-    rating: 5,
-    text: "The rooms are all the same type, with the same view and environment. The rooms are large and fully equipped.",
-  },
-  // {
-  //   name: "James Thompson",
-  //   platform: "Trip.com",
-  //   rating: 5,
-  //   text: "This resort exceeded all expectations. The conservation focus is admirable, and the activities are perfectly organized. The sunset views from the mountain are unforgettable!",
-  // },
-  // {
-  //   name: "Anna Martinez",
-  //   platform: "Trip.com",
-  //   rating: 5,
-  //   text: "A true gem in paradise! The combination of adventure activities and relaxation options makes this perfect for couples and families. We're already planning our return visit.",
-  // },
-  // {
-  //   name: "Tom Wilson",
-  //   platform: "Trip.com",
-  //   rating: 5,
-  //   text: "Outstanding service and incredible location. The protected waters offer amazing snorkeling, and the mountain hiking trail is well-maintained with stunning payoffs at the top.",
-  // },
-];
-
-const sceneryGallery = [
-  { src: sceneryResortExterior, alt: "Greeting!", title: "Welcome!", description: "Enjoy the best holiday in Semporna" },
-  { src: sceneryDiningHall, alt: "Resort Exterior", title: "Pearl Island", description: "The natural resort surrounded by pristine nature of ocean and island" },
-  { src: sceneryPoolInfinity, alt: "Dining Hall", title: "Elegant Dining", description: "Sophisticated dining hall with panoramic ocean views and mountains" },
-  { src: sceneryBeachWhiteSand, alt: "White Sand Beach", title: "Dining Hall Center", description: "Enjoy watching sea turtles in the center hall while dining" },
-  { src: scenerySpaPavilion, alt: "Spa Pavilion", title: "Walkway Path", description: "Enjoying the sky and sea view while walking" },
-  { src: sceneryLobby, alt: "Resort Lobby", title: "Towards Diving Center", description: "A short walk before going for diving center" },
-  { src: sceneryWoodenPier, alt: "Wooden Pier", title: "Water Chalets", description: "Our spacious and comfortable water chalets" },
-  { src: sceneryOutdoorBar, alt: "Tiki Bar", title: "Horizontal View", description: "Endless joy while going for adventures" },
-  { src: sceneryGardenWalkway, alt: "Garden Path", title: "Sunset View", description: "Time pass while enjoying the sunset" },
-  { src: sceneryWellnessCenter, alt: "Wellness Center", title: "Meditation Space", description: "Peaceful environment to comfort and regenerate your soul" },
-  { src: sceneryTennisCourt, alt: "Tennis Court", title: "Beautiful Sky", description: "Surrounded nature that helps you relax" },
-  { src: scenerySunsetTerrace, alt: "Sunset Terrace", title: "Golden Hour Views", description: "Spectacular sunset viewing terrace with panoramic ocean vistas" },
-];
-
-const rooms = [
-  { src: roomOceanView, alt: "Ocean Retreat", title: "Ocean Retreat" },
-  { src: roomFamilySuite, alt: "View from Bliss", title: "View from Bliss" },
-  { src: roomBeachfrontVilla, alt: "Spacious Comfort", title: "Spacious Comfort" },
-  { src: roomMountainView, alt: "Minimal Yet Cozy", title: "Minimal Yet Cozy" },
-  { src: roomPresidentialSuite, alt: "Tropical Indoor Oasis", title: "Tropical Indoor Oasis" },
-  { src: roomGardenView, alt: "Clean Contemporary Charm", title: "Clean Contemporary Charm" },
-  { src: roomHoneymoonBungalow, alt: "Storage Area", title: "Storage Area" },
-  { src: roomStandard, alt: "Elevated Nature Outlook", title: "Elevated Nature Outlook" },
-  { src: roomExecutiveSuite, alt: "Water Chalets", title: "Water Chalets" },
-  { src: roomPenthouseTerrace, alt: "Tranquil Nature Canvas", title: "Tranquil Nature Canvas" },
-  { src: roomDeluxeOcean, alt: "Sunset View", title: "Sunset View" },
-  { src: roomSpaSuite, alt: "Spa Suite", title: "Spa Suite" },
-];
-
 const Index = () => {
+  const { t } = useTranslation();
+  const sceneryGallery = [
+    { src: sceneryResortExterior, alt: "Greeting!", title: t("scenery.welcome"), description: t("scenery.welcomeDesc") },
+    { src: sceneryDiningHall, alt: "Resort Exterior", title: t("scenery.pearlIsland"), description: t("scenery.pearlIslandDesc") },
+    { src: sceneryPoolInfinity, alt: "Dining Hall", title: t("scenery.elegantDining"), description: t("scenery.elegantDiningDesc") },
+    { src: sceneryBeachWhiteSand, alt: "White Sand Beach", title: t("scenery.diningHallCenter"), description: t("scenery.diningHallCenterDesc") },
+    { src: scenerySpaPavilion, alt: "Spa Pavilion", title: t("scenery.walkwayPath"), description: t("scenery.walkwayPathDesc") },
+    { src: sceneryLobby, alt: "Resort Lobby", title: t("scenery.divingCenter"), description: t("scenery.divingCenterDesc") },
+    { src: sceneryWoodenPier, alt: "Wooden Pier", title: t("scenery.waterChalets"), description: t("scenery.waterCharletsDesc") },
+    { src: sceneryOutdoorBar, alt: "Tiki Bar", title: t("scenery.horizontalView"), description: t("scenery.horizontalViewDesc") },
+    { src: sceneryGardenWalkway, alt: "Garden Path", title: t("scenery.sunsetView"), description: t("scenery.sunsetViewDesc") },
+    { src: sceneryWellnessCenter, alt: "Wellness Center", title: t("scenery.meditationSpace"), description: t("scenery.meditationSpaceDesc") },
+    { src: sceneryTennisCourt, alt: "Tennis Court", title: t("scenery.beautifulSky"), description: t("scenery.beautifulSkyDesc") },
+    { src: scenerySunsetTerrace, alt: "Sunset Terrace", title: t("scenery.goldenHour"), description: t("scenery.goldenHourDesc") },
+  ];
+
+  const hikingImages = [
+    {
+      src: bdHiking,
+      alt: "2 minutes journey from Pearl Island Resort to Bohey Dulang Island",
+      title: t("hiking.boheyDulang"),
+      description: t("hiking.boheyDulangDesc"),
+    },
+    {
+      src: hikingStart,
+      alt: "Hiking Trail Information",
+      title: t("hiking.welcomeTrail"),
+      description: t("hiking.welcomeTrailDesc"),
+    },
+    {
+      src: hikingStairs,
+      alt: "Natural Mountain Trail with Staircase",
+      title: t("hiking.staircasePath"),
+      description: t("hiking.stairCasePathDesc"),
+    },
+    {
+      src: mountainTopView1,
+      alt: "Mountain Top View",
+      title: t("hiking.panoramicView"),
+      description: t("hiking.panoramicViewDesc"),
+    },
+    {
+      src: mountainTopView2,
+      alt: "Mountain Top View",
+      title: t("hiking.panoramicView"),
+      description: t("hiking.panoramicViewDesc"),
+    },
+  ];
+
+  const activities = [
+    { src: divingActivity, alt: "Scuba Diving", title: t("activities.diving") },
+    { src: snorkelingActivity, alt: "Snorkeling", title: t("activities.snorkeling") },
+    { src: kayakingActivity, alt: "Kayaking", title: t("activities.kayaking") },
+    { src: cyclingActivity, alt: "Cycling", title: t("activities.cycling") },
+    { src: relaxingActivity, alt: "Relaxing", title: t("activities.relaxation") },
+    { src: diningActivity, alt: "Fine Dining", title: t("activities.dining") },
+    { src: sunsetActivity, alt: "Sunset Viewing", title: t("activities.sunset") },
+    { src: conversationActivity, alt: "Social Time", title: t("activities.social") },
+  ];
+
+  const foodGallery = [
+    { src: foodSeafoodPlatter, name: t("culinary.seafoodSpaghetti"), description: t("culinary.seafoodSpaghettiDesc") },
+    { src: foodBeefSteak, name: t("culinary.koreanWings"), description: t("culinary.koreanWingsDesc") },
+    { src: foodLobsterThermidor, name: t("culinary.roastedDuck"), description: t("culinary.roastedDuckDesc") },
+    { src: foodTrufflePasta, name: t("culinary.saltPepperCrab"), description: t("culinary.saltPepperCrabDesc") },
+    { src: foodSushiPlatter, name: t("culinary.saladPrawns"), description: t("culinary.saladPrawnsDesc") },
+    { src: foodChocolateDessert, name: t("culinary.bakedMussels"), description: t("culinary.bakedMusselsDesc") },
+    { src: foodMediterraneanVegetables, name: t("culinary.roastedVegetables"), description: t("culinary.roastedVegetablesDesc") },
+    { src: foodDuckBreast, name: t("culinary.pudding"), description: t("culinary.puddingDesc") },
+    { src: foodFreshOysters, name: t("culinary.miniCake"), description: t("culinary.miniCakeDesc") },
+    { src: foodMushroomRisotto, name: t("culinary.cheeseTart"), description: t("culinary.cheeseTartDesc") },
+  ];
+
+  const testimonials = [
+    {
+      name: t("testimonials.oceanPrince"),
+      platform: t("testimonials.tripcom"),
+      rating: 5,
+      text: t("testimonials.oceanPrinceText"),
+    },
+    {
+      name: t("testimonials.zhunemiguiyi"),
+      platform: t("testimonials.tripcom"),
+      rating: 5,
+      text: t("testimonials.zhunemigyiyiText"),
+    },
+    {
+      name: t("testimonials.wechatUser"),
+      platform: t("testimonials.tripcom"),
+      rating: 5,
+      text: t("testimonials.wechatUserText"),
+    },
+    {
+      name: t("testimonials.yilushunfeng"),
+      platform: t("testimonials.tripcom"),
+      rating: 5,
+      text: t("testimonials.yilushunfengText"),
+    },
+    {
+      name: t("testimonials.tk650156"),
+      platform: t("testimonials.tripcom"),
+      rating: 5,
+      text: t("testimonials.tk650156Text"),
+    },
+  ];
+
+  const rooms = [
+    { src: roomOceanView, alt: "Ocean Retreat", title: t("rooms.oceanRetreat") },
+    { src: roomFamilySuite, alt: "View from Bliss", title: t("rooms.viewFromBliss") },
+    { src: roomBeachfrontVilla, alt: "Spacious Comfort", title: t("rooms.spaciousComfort") },
+    { src: roomMountainView, alt: "Minimal Yet Cozy", title: t("rooms.minimalYetCozy") },
+    { src: roomPresidentialSuite, alt: "Tropical Indoor Oasis", title: t("rooms.tropicalIndoorOasis") },
+    { src: roomGardenView, alt: "Clean Contemporary Charm", title: t("rooms.cleanContemporaryCharm") },
+    { src: roomHoneymoonBungalow, alt: "Storage Area", title: t("rooms.storageArea") },
+    { src: roomStandard, alt: "Elevated Nature Outlook", title: t("rooms.elevatedNatureOutlook") },
+    { src: roomExecutiveSuite, alt: "Water Chalets", title: t("rooms.waterChalets") },
+    { src: roomPenthouseTerrace, alt: "Tranquil Nature Canvas", title: t("rooms.tranquilNatureCanvas") },
+    { src: roomDeluxeOcean, alt: "Sunset View", title: t("rooms.sunsetView") },
+    { src: roomSpaSuite, alt: "Spa Suite", title: t("rooms.spaSuite") },
+  ];
+
   const [selectedHikingImage, setSelectedHikingImage] = useState(0);
   const [currentRoomIndex, setCurrentRoomIndex] = useState(0);
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
@@ -262,8 +247,8 @@ const Index = () => {
       <section id="scenery" className="py-20 px-6 bg-gradient-to-b from-background to-secondary/20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Resort Scenery</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">An unforgettable experience of stunning landscapes and elegant architecture in a tropical paradise.</p>
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t("sections.scenery")}</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("sections.sceneryDesc")}</p>
           </div>
 
           {/* Desktop: Instagram-style grid (4 columns x 3 rows) */}
@@ -314,8 +299,8 @@ const Index = () => {
       <section id="hiking" className="py-20 px-6 bg-gradient-to-b from-background to-secondary/20 mt-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Mountain Adventure Trail</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Journey through our protected national park and be awed by its breathtaking scenery.</p>
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t("sections.hiking")}</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("sections.hikingDesc")}</p>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-8 lg:h-[600px]">
@@ -348,8 +333,8 @@ const Index = () => {
       <section id="activities" className="py-20 px-6 bg-gradient-to-b from-secondary/20 to-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Endless Adventures Await</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">From oceans to peaks, create unforgettable family memories with activities for all.</p>
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">{t("sections.activities")}</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("sections.activitiesDesc")}</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -380,8 +365,8 @@ const Index = () => {
       <section id="culinary" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Culinary Experiences</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Every meal is a journey—local ingredients meet global flair in a stunning setting.</p>
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t("sections.culinary")}</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{t("sections.culinaryDesc")}</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -413,8 +398,8 @@ const Index = () => {
       <section id="testimonies" className="py-20 px-6 bg-gradient-to-b from-background to-primary/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Guest Experiences</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Our Guests Tell the Story of Our Paradise.</p>
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">{t("sections.testimonials")}</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("sections.testimonialsDesc")}</p>
           </div>
 
           {/* Desktop/Tablet: Grid layout */}
@@ -489,8 +474,8 @@ const Index = () => {
       <section id="rooms" className="py-20 px-6 bg-gradient-to-b from-primary/5 to-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Spacious & Comfortable</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Your sanctuary of comfort and style. Unwind in our spacious, modern rooms with breathtaking views.</p>
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t("sections.rooms")}</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("sections.roomsDesc")}</p>
           </div>
 
           {/* Desktop: Pinterest-style layout */}
@@ -634,7 +619,7 @@ const Index = () => {
             <ContactDialog
               trigger={
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-12 py-6 text-xl font-semibold rounded-full transition-all duration-300 hover:scale-105">
-                  Enquiry
+                  {t("contact.enquiry")}
                 </Button>
               }
             />
@@ -650,24 +635,14 @@ const Index = () => {
       {/* Footer */}
       <footer id="contact" className="bg-primary py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Contact Information: 2 columns */}
-          {/* <h3 className="text-2xl font-bold mb-6 text-white">Pearl Island Resort</h3> */}
-
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             {/* Sandakan Office */}
             <div className="space-y-4 text-white">
-              <h4 className="text-xl font-semibold mb-6 text-white">Sandakan Office</h4>
+              <h4 className="text-xl font-semibold mb-6 text-white">{t("footer.sandakanOffice")}</h4>
               <a href="https://maps.app.goo.gl/pkaqfYKCzzatt6kC9" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
-                {/* <MapPin size={20} className="text-white shrink-0" /> */}
-                <span>Ground Floor, Lot 38 &amp; 39, Block C, Bandar Tyng, Mile 5, North Road, PPM 255 Elopura, 90000 Sandakan, Sabah, Malaysia.</span>
+                <span>{t("footer.sandakanAddress")}</span>
               </a>
               <div className="flex items-start gap-2">
-                {/* Phone Icon Column - Centered */}
-                {/* <div className="flex justify-center items-center h-6 shrink-0">
-                  <Phone size={18} className="text-white" />
-                </div> */}
-
-                {/* Phone Numbers Column - Stacked */}
                 <div className="flex flex-col gap-2">
                   <a href="tel:+6089673999" className="hover:underline transition-all duration-300 hover:scale-105">
                     (+60) 89-673999
@@ -678,83 +653,69 @@ const Index = () => {
                   <a href="tel:+6089675999" className="hover:underline transition-all duration-300 hover:scale-105">
                     (+60) 89-675999
                   </a>
+                  <a href="tel:+60178927100" className="hover:underline transition-all duration-300 hover:scale-105">
+                    (+60) 17-892 7100 (Caroline)
+                  </a>
+                  <a href="tel:+60178992700" className="hover:underline transition-all duration-300 hover:scale-105">
+                    (+60) 17-899 2700 (Stella)
+                  </a>
                 </div>
               </div>
               <div className="flex items-center gap-2">
                 <a href="mailto:mail@pearlislandresorts.com" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
-                  {/* <Mail size={18} className="text-white shrink-0" /> */}
                   <span>mail@pearlislandresorts.com</span>
                 </a>
               </div>
             </div>
+
             {/* Tawau Office */}
             <div className="space-y-4 text-white">
-              <h4 className="text-xl font-semibold mb-6 text-white">Tawau Office</h4>
+              <h4 className="text-xl font-semibold mb-6 text-white">{t("footer.tawauOffice")}</h4>
               <a href="https://maps.app.goo.gl/7mouAogF627ktS2H7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
-                {/* <MapPin size={20} className="text-white shrink-0" /> */}
-                <span>1st Floor, No. 484, Block P, Bandar Sabindo, P.O Box 61120, 91021 Tawau, Sabah, Malaysia.</span>
+                <span>{t("footer.tawauAddress")}</span>
               </a>
-              <div className="flex items-center gap-2">
-                {/* <Phone size={18} className="text-white shrink-0" /> */}
+              <div className="flex flex-col gap-2">
                 <a href="tel:+6089765200" className="hover:underline transition-all duration-300 hover:scale-105">
                   (+60) 89-765200
                 </a>
+                <a href="tel:+60178991700" className="hover:underline transition-all duration-300 hover:scale-105">
+                  (+60) 17-899 1700 (Veronica)
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <a href="mailto:mail@pearlislandresorts.com" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
-                  {/* <Mail size={18} className="text-white shrink-0" /> */}
                   <span>mail@pearlislandresorts.com</span>
                 </a>
               </div>
             </div>
+
             {/* KK Office */}
             <div className="space-y-4 text-white">
-              <h4 className="text-xl font-semibold mb-6 text-white">Kota Kinabalu Office</h4>
+              <h4 className="text-xl font-semibold mb-6 text-white">{t("footer.kkOffice")}</h4>
               <a href="https://maps.app.goo.gl/7mouAogF627ktS2H7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
-                {/* <MapPin size={20} className="text-white shrink-0" /> */}
-                <span>Block B, 1st Floor, Lot B-1-1, Plaza Tanjung Aru, Jalan Mat Salleh, Tanjung Aru, 88100 Kota Kinabalu, Sabah, Malaysia.</span>
+                <span>{t("footer.kkAddress")}</span>
               </a>
               <div className="flex items-center gap-2">
-                {/* <Phone size={18} className="text-white shrink-0" /> */}
                 <a href="tel:+60178995700" className="hover:underline transition-all duration-300 hover:scale-105">
-                  (+60) 17-899 5700
+                  (+60) 17-899 5700 (Shannel)
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <a href="mailto:mail@pearlislandresorts.com" className="flex items-center gap-2 hover:underline transition-all duration-300 hover:scale-105">
-                  {/* <Mail size={18} className="text-white shrink-0" /> */}
                   <span>mail@pearlislandresorts.com</span>
                 </a>
               </div>
             </div>
-            {/* Social Media & Contact: full width below */}
+
+            {/* Social Media & Contact */}
             <div id="contacts" className="space-y-4 text-white">
-              <h4 className="text-xl font-semibold mb-6 text-white">Follow Us</h4>
-              <p className="text-gray-300 leading-relaxed">Experience Pure, Unforgettable Tranquility. Immerse Yourself in the Untouched Island Beauty of Semporna.</p>
+              <h4 className="text-xl font-semibold mb-6 text-white">{t("footer.followUs")}</h4>
+              <p className="text-gray-300 leading-relaxed">{t("footer.tagline")}</p>
               <div className="flex space-x-5 items-center">
                 <a href="https://www.facebook.com/profile.php?id=61574060822782" target="_blank" className="text-ocean-pearl hover:text-white smooth-transition">
                   <Facebook className="w-5 h-5" />
                 </a>
-                {/* <a href="https://www.instagram.com/boheydulangresort/" target="_blank" className="text-ocean-pearl hover:text-white smooth-transition">
-                  <Instagram className="w-5 h-5" />
-                </a> */}
-                {/* <a href="#" className="text-ocean-pearl hover:text-white smooth-transition">
-                <img src={tiktok} alt="Sipadan Kapalai TikTok Social Media" className="w-4 h-4" />
-              </a>
-              <a href="#" className="text-ocean-pearl hover:text-white smooth-transition">
-                <img src={rednote} alt="Sipadan Kapalai Rednote Social Media" className="w-10 h-10" />
-              </a> */}
               </div>
-              {/* <div className="flex flex-wrap gap-4 mb-6">
-                <a href="https://www.facebook.com/profile.php?id=61574060822782" target="_blank" className="text-white transition-all duration-300 hover:scale-110">
-                  Facebook
-                </a>
-                <a href="https://www.instagram.com/boheydulangresort/" target="_blank" className="text-white transition-all duration-300 hover:scale-110">
-                  Instagram
-                </a>
-                {/* <span className="text-white">TikTok</span>
-              <span className="text-white">Rednotes</span>
-              </div> */}
             </div>
           </div>
 
@@ -763,11 +724,10 @@ const Index = () => {
               <img
                 src={pearlIslandLogo}
                 alt="Pearl Island Resort"
-                className="h-28 md:h-72 w-auto" // h-40 on mobile, h-48 on md screens and up
+                className="h-28 md:h-72 w-auto"
               />
             </div>
-            <p className="text-white text-xs md:text-sm">© 2025 All Rights Reserved.</p>
-            {/* <img src={inbayuRightReserved} alt="an INBAYU Collection logo" className="h-4 md:h-4 object-cover" /> */}
+            <p className="text-white text-xs md:text-sm">{t("footer.copyright")}</p>
           </div>
         </div>
       </footer>
