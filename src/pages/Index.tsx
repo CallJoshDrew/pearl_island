@@ -675,9 +675,9 @@ const Index = () => {
                 <span>{t("footer.tawauAddress")}</span>
               </a>
               <div className="flex flex-col gap-2">
-                <a href="tel:+6089765200" className="hover:underline transition-all duration-300 hover:scale-105">
+                {/* <a href="tel:+6089765200" className="hover:underline transition-all duration-300 hover:scale-105">
                   (+60) 89-765200
-                </a>
+                </a> */}
                 <a href="tel:+60178991700" className="hover:underline transition-all duration-300 hover:scale-105">
                   (+60) 17-899 1700 (Veronica)
                 </a>
