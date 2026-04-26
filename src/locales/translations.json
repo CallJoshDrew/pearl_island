@@ -24,7 +24,9 @@
         "testimonials": "Guest Experiences",
         "testimonialsDesc": "Our Guests Tell the Story of Our Paradise.",
         "rooms": "Spacious & Comfortable",
-        "roomsDesc": "Your sanctuary of comfort and style. Unwind in our spacious, modern rooms with breathtaking views."
+        "roomsDesc": "Your sanctuary of comfort and style. Unwind in our spacious, modern rooms with breathtaking views.",
+        "promo": "Special Promo",
+        "promoDesc": "Don't miss out on this limited-time opportunity to explore the vibrant marine life and stunning underwater landscapes of our resort. Book now and create memories that will last a lifetime!"
       },
       "scenery": {
         "welcome": "Welcome!",
@@ -202,7 +204,9 @@
         "testimonials": "客人体验",
         "testimonialsDesc": "我们的客人讲述了我们天堂的故事。",
         "rooms": "宽敞舒适",
-        "roomsDesc": "您舒适和风格的避难所。在我们宽敞、现代的房间中放松身心，享受壮观的景观。"
+        "roomsDesc": "您舒适和风格的避难所。在我们宽敞、现代的房间中放松身心，享受壮观的景观。",
+        "promo": "特别优惠",
+        "promoDesc": "不要错过这次限时机会，探索度假村丰富的海洋生物和壮丽的水下景观。立即预订，创造永生难忘的回忆！"
       },
       "scenery": {
         "welcome": "欢迎！",

@@ -61,7 +61,7 @@ const Navigation = () => {
               <button onClick={() => scrollToSection("rooms")} className="text-foreground hover:text-primary transition-colors">
                 {t("nav.rooms")}
               </button>
-              <button onClick={() => scrollToSection("contacts")} className="text-foreground hover:text-primary transition-colors">
+              <button onClick={() => scrollToSection("promotion")} className="text-foreground hover:text-primary transition-colors">
                 {t("nav.contact")}
               </button>
             </div>
@@ -103,7 +103,7 @@ const Navigation = () => {
               <button onClick={() => scrollToSection("rooms")} className="text-left text-foreground hover:text-primary transition-colors py-2">
                 {t("nav.rooms")}
               </button>
-              <button onClick={() => scrollToSection("contacts")} className="text-left text-foreground hover:text-primary transition-colors py-2">
+              <button onClick={() => scrollToSection("promotion")} className="text-left text-foreground hover:text-primary transition-colors py-2">
                 {t("nav.contact")}
               </button>
               <ContactDialog trigger={<button className="bg-primary hover:bg-primary/90 text-white w-full py-2 rounded-sm mt-4">{t("nav.enquiry")}</button>} />

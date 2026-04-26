@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
@@ -71,6 +71,12 @@ import sceneryGardenWalkway from "@/assets/scenery/PIScene9.jpg";
 import sceneryWellnessCenter from "@/assets/scenery/PIScene10.jpg";
 import sceneryTennisCourt from "@/assets/scenery/PIScene11.jpg";
 import scenerySunsetTerrace from "@/assets/scenery/PIScene12.jpg";
+
+// Import promo images
+import promo1 from "@/assets/promo/marine-life.jpg";
+import promo2 from "@/assets/promo/couples-underwater-exploration.jpg";
+import promo3 from "@/assets/promo/underwater-diving.jpg";
+import promo4 from "@/assets/promo/barracuda_tornado.png";
 
 const Index = () => {
   const { t } = useTranslation();
@@ -203,6 +209,15 @@ const Index = () => {
   const [selectedFoodImage, setSelectedFoodImage] = useState<{ src: string; name: string; description: string } | null>(null);
   const [selectedSceneryImage, setSelectedSceneryImage] = useState<{ src: string; alt: string; title: string; description: string } | null>(null);
   const [currentSceneryIndex, setCurrentSceneryIndex] = useState(0);
+  const [currentPromoIndex, setCurrentPromoIndex] = useState(0);
+
+  // Promo carousel images
+  const promoImages = [
+    { src: promo1, alt: "Marine Life" },
+    { src: promo2, alt: "Couples Underwater Exploration" },
+    { src: promo3, alt: "Underwater Diving" },
+    { src: promo4, alt: "Barracuda Tornado" },
+  ];
 
   const nextRoom = () => setCurrentRoomIndex((prev) => (prev + 1) % rooms.length);
   const prevRoom = () => setCurrentRoomIndex((prev) => (prev - 1 + rooms.length) % rooms.length);
@@ -219,6 +234,15 @@ const Index = () => {
     setCurrentRoomIndex(index);
     setSelectedRoomImage(rooms[index]);
   };
+
+  // Auto-slide promo carousel every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPromoIndex((prev) => (prev + 1) % promoImages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [promoImages.length]);
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
@@ -503,7 +527,7 @@ const Index = () => {
                           </div>
                         </CardContent>
                       </Card>
-                    )
+                    ),
                 )}
               </div>
 
@@ -529,7 +553,7 @@ const Index = () => {
                           </div>
                         </CardContent>
                       </Card>
-                    )
+                    ),
                 )}
               </div>
 
@@ -555,7 +579,7 @@ const Index = () => {
                           </div>
                         </CardContent>
                       </Card>
-                    )
+                    ),
                 )}
               </div>
 
@@ -581,7 +605,7 @@ const Index = () => {
                           </div>
                         </CardContent>
                       </Card>
-                    )
+                    ),
                 )}
               </div>
             </div>
@@ -612,6 +636,43 @@ const Index = () => {
                   <div key={index} className={`w-3 h-3 rounded-full transition-all cursor-pointer border-2 ${index === currentRoomIndex ? "bg-primary border-primary" : "bg-primary/20 border-primary/40 hover:bg-primary/30"}`} onClick={() => setCurrentRoomIndex(index)} />
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="promotion" className="py-20 px-6 bg-gradient-to-b from-primary/5 to-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold pb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t("sections.promo")}</h2>
+            <p className="text-xl text-muted-foreground max-w-5xl mx-auto">{t("sections.promoDesc")}</p>
+          </div>
+
+          {/* Promo Carousel */}
+          <div className="relative w-full h-[70vh] rounded-lg overflow-hidden shadow-lg">
+            {/* Carousel Images */}
+            <div className="relative w-full h-full">
+              {promoImages.map((image, index) => (
+                <img key={index} src={image.src} alt={image.alt} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentPromoIndex ? "opacity-100" : "opacity-0"}`} />
+              ))}
+            </div>
+
+            {/* Dark overlay for better text readability */}
+            <div className="absolute inset-0 bg-black/40" />
+
+            {/* Centered title */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center px-6 z-10">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-4">Diving at Pearl Island</h2>
+                <p className="text-3xl md:text-5xl font-semibold text-[#b3ffff] mb-1 md:mb-4">--3 dives per day--</p>
+                <p className="text-base md:text-2xl text-white/75 italic">Terms & Condition Apply</p>
+              </div>
+            </div>
+
+            {/* Navigation Dots */}
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+              {promoImages.map((_, index) => (
+                <button key={index} onClick={() => setCurrentPromoIndex(index)} className={`w-3 h-3 rounded-full transition-all cursor-pointer border-2 ${index === currentPromoIndex ? "bg-white border-white" : "bg-white/30 border-white/50 hover:bg-white/50"}`} />
+              ))}
             </div>
           </div>
 
@@ -681,10 +742,10 @@ const Index = () => {
                 <a href="tel:+60178991700" className="hover:underline transition-all duration-300 hover:scale-105">
                   (+60) 17-899 1700 (Veronica)
                 </a>
-                 <a href="tel:+60178993683" className="hover:underline transition-all duration-300 hover:scale-105">
+                <a href="tel:+60178993683" className="hover:underline transition-all duration-300 hover:scale-105">
                   (+60) 17-899 3683
                 </a>
-                 <a href="tel:+60178995300" className="hover:underline transition-all duration-300 hover:scale-105">
+                <a href="tel:+60178995300" className="hover:underline transition-all duration-300 hover:scale-105">
                   (+60) 17-899 5300
                 </a>
               </div>
@@ -727,11 +788,7 @@ const Index = () => {
 
           <div className="border-t border-white mt-12 pt-8 flex flex-col items-center justify-center gap-2">
             <div className="flex items-center justify-center my-10 md:my-10">
-              <img
-                src={pearlIslandLogo}
-                alt="Pearl Island Resort"
-                className="h-28 md:h-72 w-auto"
-              />
+              <img src={pearlIslandLogo} alt="Pearl Island Resort" className="h-28 md:h-72 w-auto" />
             </div>
             <p className="text-white text-xs md:text-sm">{t("footer.copyright")}</p>
           </div>
@@ -795,3 +852,4 @@ const Index = () => {
 };
 
 export default Index;
+// Experience the magic of our exclusive diving promotion. Dive into unforgettable underwater adventures with our special offer, designed to make your dream dive vacation a reality. 体验我们独家潜水促销的魔力。通过特别优惠深入难忘的海底冒险，让梦想中的潜水假期成为现实。
