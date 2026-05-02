@@ -651,29 +651,31 @@ const Index = () => {
           <div className="relative w-full h-[70vh] rounded-lg overflow-hidden shadow-lg">
             {/* Carousel Images */}
             <div className="relative w-full h-full">
-              {promoImages.map((image, index) => (
+              {/* {promoImages.map((image, index) => (
                 <img key={index} src={image.src} alt={image.alt} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentPromoIndex ? "opacity-100" : "opacity-0"}`} />
-              ))}
-            </div>
+              ))} */}
+             
+                <img  src={promo4} alt="Barracuda Tornado" className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" />
+                </div>
 
             {/* Dark overlay for better text readability */}
-            <div className="absolute inset-0 bg-black/40" />
+            // <div className="absolute inset-0 bg-black/40" />
 
             {/* Centered title */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center px-6 z-10">
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-4">Diving at Pearl Island</h2>
-                <p className="text-3xl md:text-5xl font-semibold text-[#b3ffff] mb-1 md:mb-4">--3 dives per day--</p>
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-4">3 Dives Per Day</h2>
+                <p className="text-3xl md:text-5xl font-semibold text-[#b3ffff] mb-1 md:mb-4">at Sipadan</p>
                 <p className="text-base md:text-2xl text-white/75 italic">Terms & Condition Apply</p>
               </div>
             </div>
 
             {/* Navigation Dots */}
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+            {/* <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
               {promoImages.map((_, index) => (
                 <button key={index} onClick={() => setCurrentPromoIndex(index)} className={`w-3 h-3 rounded-full transition-all cursor-pointer border-2 ${index === currentPromoIndex ? "bg-white border-white" : "bg-white/30 border-white/50 hover:bg-white/50"}`} />
               ))}
-            </div>
+            </div> */}
           </div>
 
           <div className="text-center mt-12">
