@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
@@ -73,10 +73,16 @@ import sceneryTennisCourt from "@/assets/scenery/PIScene11.jpg";
 import scenerySunsetTerrace from "@/assets/scenery/PIScene12.jpg";
 
 // Import promo images
-import promo1 from "@/assets/promo/marine-life.jpg";
-import promo2 from "@/assets/promo/couples-underwater-exploration.jpg";
-import promo3 from "@/assets/promo/underwater-diving.jpg";
 import promo4 from "@/assets/promo/barracuda_tornado.png";
+
+// Import promo videos
+import divingVideo1 from "@/assets/diving-videos/DivingVideo1.mp4";
+import divingVideo2 from "@/assets/diving-videos/DivingVideo2.mp4";
+import divingVideo3 from "@/assets/diving-videos/DivingVideo3.mp4";
+import divingVideo4 from "@/assets/diving-videos/DivingVideo4.mp4";
+import divingVideo5 from "@/assets/diving-videos/DivingVideo5.mp4";
+import divingVideo6 from "@/assets/diving-videos/DivingVideo6.mp4";
+import divingVideo7 from "@/assets/diving-videos/DivingVideo7.mp4";
 
 const Index = () => {
   const { t } = useTranslation();
@@ -211,12 +217,19 @@ const Index = () => {
   const [currentSceneryIndex, setCurrentSceneryIndex] = useState(0);
   const [currentPromoIndex, setCurrentPromoIndex] = useState(0);
 
-  // Promo carousel images
-  const promoImages = [
-    { src: promo1, alt: "Marine Life" },
-    { src: promo2, alt: "Couples Underwater Exploration" },
-    { src: promo3, alt: "Underwater Diving" },
-    { src: promo4, alt: "Barracuda Tornado" },
+  const promoVideoRef = useRef<HTMLVideoElement | null>(null);
+  const promoTimeoutRef = useRef<number | null>(null);
+
+  // Promo carousel items: first image, then seven diving videos
+  const promoItems = [
+    { type: "image", src: promo4, alt: "Barracuda Tornado" },
+    { type: "video", src: divingVideo1, alt: "Dive Video 1" },
+    { type: "video", src: divingVideo2, alt: "Dive Video 2" },
+    { type: "video", src: divingVideo3, alt: "Dive Video 3" },
+    { type: "video", src: divingVideo4, alt: "Dive Video 4" },
+    { type: "video", src: divingVideo5, alt: "Dive Video 5" },
+    { type: "video", src: divingVideo6, alt: "Dive Video 6" },
+    { type: "video", src: divingVideo7, alt: "Dive Video 7" },
   ];
 
   const nextRoom = () => setCurrentRoomIndex((prev) => (prev + 1) % rooms.length);
@@ -235,14 +248,40 @@ const Index = () => {
     setSelectedRoomImage(rooms[index]);
   };
 
-  // Auto-slide promo carousel every 3 seconds
+  // Auto-slide promo carousel for images; videos advance only when finished.
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentPromoIndex((prev) => (prev + 1) % promoImages.length);
-    }, 3000);
+    if (promoTimeoutRef.current) {
+      window.clearTimeout(promoTimeoutRef.current);
+      promoTimeoutRef.current = null;
+    }
 
-    return () => clearInterval(interval);
-  }, [promoImages.length]);
+    const currentItem = promoItems[currentPromoIndex];
+
+    if (currentItem.type === "image") {
+      promoTimeoutRef.current = window.setTimeout(() => {
+        setCurrentPromoIndex((prev) => (prev + 1) % promoItems.length);
+      }, 3000);
+    } else if (promoVideoRef.current) {
+      promoVideoRef.current.currentTime = 0;
+      const playPromise = promoVideoRef.current.play();
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise.catch(() => {
+          // Autoplay with sound may be blocked in some browsers.
+        });
+      }
+    }
+
+    return () => {
+      if (promoTimeoutRef.current) {
+        window.clearTimeout(promoTimeoutRef.current);
+        promoTimeoutRef.current = null;
+      }
+
+      if (promoVideoRef.current) {
+        promoVideoRef.current.pause();
+      }
+    };
+  }, [currentPromoIndex, promoItems.length]);
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
@@ -649,17 +688,37 @@ const Index = () => {
 
           {/* Promo Carousel */}
           <div className="relative w-full h-[70vh] rounded-lg overflow-hidden shadow-lg">
-            {/* Carousel Images */}
-            <div className="relative w-full h-full">
-              {/* {promoImages.map((image, index) => (
-                <img key={index} src={image.src} alt={image.alt} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentPromoIndex ? "opacity-100" : "opacity-0"}`} />
-              ))} */}
-             
-                <img  src={promo4} alt="Barracuda Tornado" className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" />
-                </div>
+            {/* Carousel Items */}
+              <div className="relative w-full h-full">
+              {promoItems[currentPromoIndex].type === "image" ? (
+                <img
+                  src={promoItems[currentPromoIndex].src}
+                  alt={promoItems[currentPromoIndex].alt}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              ) : (
+                <video
+                  key={promoItems[currentPromoIndex].src}
+                  ref={promoVideoRef}
+                  src={promoItems[currentPromoIndex].src}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  controls
+                  loop={false}
+                  playsInline
+                  autoPlay
+                  preload="metadata"
+                  onEnded={() => {
+                    if (promoVideoRef.current) {
+                      promoVideoRef.current.pause();
+                    }
+                    setCurrentPromoIndex((prev) => (prev + 1) % promoItems.length);
+                  }}
+                />
+              )}
+            </div>
 
             {/* Dark overlay for better text readability */}
-            // <div className="absolute inset-0 bg-black/40" />
+            {/* <div className="absolute inset-0 bg-black/40" /> */}
 
             {/* Centered title */}
             <div className="absolute inset-0 flex items-center justify-center">
@@ -671,11 +730,15 @@ const Index = () => {
             </div>
 
             {/* Navigation Dots */}
-            {/* <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-              {promoImages.map((_, index) => (
-                <button key={index} onClick={() => setCurrentPromoIndex(index)} className={`w-3 h-3 rounded-full transition-all cursor-pointer border-2 ${index === currentPromoIndex ? "bg-white border-white" : "bg-white/30 border-white/50 hover:bg-white/50"}`} />
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+              {promoItems.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPromoIndex(index)}
+                  className={`w-3 h-3 rounded-full transition-all cursor-pointer border-2 ${index === currentPromoIndex ? "bg-white border-white" : "bg-white/30 border-white/50 hover:bg-white/50"}`}
+                />
               ))}
-            </div> */}
+            </div>
           </div>
 
           <div className="text-center mt-12">
